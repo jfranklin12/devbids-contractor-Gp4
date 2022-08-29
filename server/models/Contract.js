@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const responseSchema = new Schema({
+const contractSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -14,7 +14,6 @@ const responseSchema = new Schema({
   },
   price: {
     type: Float,
-    required: true,
     min: 0.99
   },
   category: {
@@ -22,12 +21,18 @@ const responseSchema = new Schema({
     ref: 'Category',
     required: true
   },
-  responseDate: {
+  contractDate: {
     type: Date,
     default: Date.now
   },
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Product'
+    }
+  ]
 });
 
-const Response = mongoose.model('Response', responseSchema);
+const Contract = mongoose.model('Contract', contractSchema);
 
-module.exports = Response;
+module.exports = Contract;

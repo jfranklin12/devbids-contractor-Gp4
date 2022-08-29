@@ -6,14 +6,14 @@ const typeDefs = gql`
     name: String
   }
   
-  type Request {
+  type Contract {
     _id: ID
     username: [User]
-    description: String
+    description: String!
     price: Float
     category: [Category]
     token: Int
-    requestDate: Date!
+    contractDate: Date!
   }
 
   type Response {
@@ -22,16 +22,24 @@ const typeDefs = gql`
     description: String
     price: Float
     category: [Category]
-    requestDate: Date!
+    responseDate: Date!
   }
 
   type User {
     _id: ID
     userName: String
     email: String
-    requests: [Request]
-    responses: [Response]
-    transactions: [Transaction]
+    joinDate: Date!
+  }
+
+  type Transaction {
+    _id: ID
+    ContractUser: [Contract]!
+    ResponseUser: [Response]!
+    ContractID: [Contract]!
+    category: [Category]!
+    price: Float
+    transactionDate: Date!
   }
 
   type Checkout {
@@ -45,17 +53,17 @@ const typeDefs = gql`
 
   type Query {
     categories: [Category]
-    requests(category: ID, name: String): [Request]
+    contracts(category: ID, name: String): [Contract]
     response(_id: ID!): [Response]
     user: User
 
-    order(_id: ID!): Request
+    order(_id: ID!): Contract
     checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    addRequest(products: [ID]!): Request
+    addContract(products: [ID]!): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateResponse(_id: ID!, quantity: Int!): Response
     login(email: String!, password: String!): Auth
