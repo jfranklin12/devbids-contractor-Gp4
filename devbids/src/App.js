@@ -1,18 +1,26 @@
+import React from 'react'
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client'
+
+// import { setContext } from '@apollo/client/link/context'
+
 import "bootstrap";
 import "react-bootstrap";
-import LoginSignup from "./pages/LoginSignup/LoginSignup";
+import LoginSignup from "./components/LoginSignup/LoginSignup";
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
 
 function App() {
   return (
-    <div>
-      <div className="routes">
-        <Routes>
-          <Route path="/login" element={<LoginSignup />} />
-        </Routes>
-      </div>
-    </div>
+    <ApolloProvider >
   );
 }
 
