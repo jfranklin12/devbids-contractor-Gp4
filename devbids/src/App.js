@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
@@ -6,28 +6,29 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client'
+} from "@apollo/client";
 
-import { setContext } from '@apollo/client/link/context'
+import { setContext } from "@apollo/client/link/context";
 
 import "bootstrap";
 import "react-bootstrap";
+import Navbar from "";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 
 //Constructs main graphql API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: "/graphql",
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem("id_token");
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer ${token}` : "",
     },
   };
 });
@@ -40,7 +41,12 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider
+    <ApolloProvider client={client}>
+      <Router>
+        <Navbar />
+        <Routes></Routes>
+      </Router>
+    </ApolloProvider>
   );
 }
 
