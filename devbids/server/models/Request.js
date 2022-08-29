@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model} = require('mongoose');
 
-const { Schema } = mongoose;
+
 
 const requestSchema = new Schema({
   purchaseDate: {
@@ -15,6 +15,6 @@ const requestSchema = new Schema({
   ]
 });
 
-const Request = mongoose.model('Request', requestSchema);
+const Request = model('Request', requestSchema);
 
 module.exports = Request;
