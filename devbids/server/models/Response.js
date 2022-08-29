@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const {Schema, model} = require('mongoose');
 
-const { Schema } = mongoose;
 
-const requestSchema = new Schema({
+
+const responseSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -31,6 +31,6 @@ const requestSchema = new Schema({
   }
 });
 
-const Request = mongoose.model('Request', requestSchema);
+const Response = model('Response', responseSchema);
 
-module.exports = Request;
+module.exports = Response;
