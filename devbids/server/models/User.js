@@ -5,27 +5,26 @@ const bcrypt = require('bcrypt');
 const Order = require('./Order');
 
 const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  lastName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  email: {
+  username: {
     type: String,
     required: true,
     unique: true
   },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must use a valid email address']
+  },
   password: {
     type: String,
     required: true,
-    minlength: 5
+    minlength: 8
   },
-  orders: [Order.schema]
+  joinDate: {
+    type: Date,
+    default: Date.now
+  },
 });
 
 userSchema.pre('save', async function(next) {
