@@ -13,7 +13,7 @@ import { setContext } from "@apollo/client/link/context";
 import "bootstrap";
 import "react-bootstrap";
 import Navbar from "";
-import LoginSignup from "./components/LoginSignup/LoginSignup";
+import Login from "./components/Login/Login";
 
 //Constructs main graphql API endpoint
 const httpLink = createHttpLink({
