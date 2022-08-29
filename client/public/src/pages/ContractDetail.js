@@ -1,1 +1,0 @@
-// Detail will be the page where user will see detailed info on the request and be able to colloborate with the requester.
