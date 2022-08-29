@@ -1,1 +1,0 @@
-// Page to run a query on open contracts
