@@ -1,0 +1,22 @@
+/* I'm waiting to add more background styling until we know the color scheme */
+
+
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  width: 15rem;
+}
+.form-section h2 {
+    text-align: center;
+}
+
+#description {
+    height: 100%;
+}
+
+
+
+
+
