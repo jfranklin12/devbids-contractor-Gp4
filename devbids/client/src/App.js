@@ -15,6 +15,7 @@ function App() {
       <Navbar />
       <CreateContract />
       <ContactUs />
+
       <Router></Router>
     </ApolloProvider>
   );
