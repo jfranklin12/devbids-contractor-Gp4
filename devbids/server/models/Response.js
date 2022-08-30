@@ -1,35 +1,31 @@
-const {Schema, model} = require('mongoose');
-
-
+const { Schema, model } = require("mongoose");
 
 const responseSchema = new Schema({
   username: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   price: {
     type: Float,
     required: true,
-    min: 0.99
+    min: 0.99,
   },
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
+    ref: "Category",
+    required: true,
   },
   responseDate: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
 });
 
-
-const Response = model('Response', responseSchema);
-
+const Response = model("Response", responseSchema);
 
 module.exports = Response;
