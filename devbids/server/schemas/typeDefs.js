@@ -6,14 +6,15 @@ const typeDefs = gql`
     name: String
   }
   
-  type Request {
+  type Contract {
     _id: ID
     username: [User]
-    description: String
+    description: String!
     price: Float
     category: [Category]
     token: Int
-    requestDate: String
+    contractDate: Date!
+
   }
 
   type Response {
@@ -22,37 +23,45 @@ const typeDefs = gql`
     description: String
     price: Float
     category: [Category]
-    requestDate: String
+    responseDate: Date!
   }
 
   type User {
     _id: ID
     userName: String
     email: String
-    requests: [Request]
-    responses: [Response]
-    
+    joinDate: Date!
   }
 
-  
+  type Transaction {
+    _id: ID
+    ContractUser: [Contract]!
+    ResponseUser: [Response]!
+    ContractID: [Contract]!
+    category: [Category]!
+    price: Float
+    transactionDate: Date!
+  }
 
   type Query {
     categories: [Category]
-    requests(category: ID, name: String): [Request]
+    contracts(category: ID, name: String): [Contract]
     response(_id: ID!): [Response]
     user: User
-
-    order(_id: ID!): Request
-    
+    order(_id: ID!): Contract
+    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    addRequest(products: [ID]!): Request
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    addContract(products: [ID]!): Contract
+    addResponse(products: [ID]!): Request
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateResponse(_id: ID!, quantity: Int!): Response
     
   }
 `;
+
 // This was commented out during debugging
 // const typeDefs = gql`
 //   type Category {
