@@ -8,15 +8,56 @@
     justify-content: center;
     align-items: center;
 }
-.form-control {
-    margin: 1rem;
-    /* width: 75%; */
+.input-section {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .form-section {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
+  width: 15rem;
+}
+.form-section h2 {
+    text-align: center;
+}
+.form-control {
+    margin: 1rem;
+}
+#description {
+    height: 100%;
 }
 
 
+
+.btn-submit {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+.btn-submit:hover {
+    scale: 1.1;
+    transition: .1s;
+}
+
+@media (max-width: 720px) {
+    
+}
