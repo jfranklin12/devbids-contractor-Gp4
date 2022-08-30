@@ -8,29 +8,27 @@ const contractSchema = new Schema({
     required: true,
     trim: true
   },
-  description: {
+  title: {
     type: String,
     required: true
   },
-  price: {
-    type: Float,
-    min: 0.99
+  description: {
+    type: String,
+    required: true
   },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
   },
+  price: {
+    type: Float,
+    min: 0.99
+  },
   contractDate: {
     type: Date,
     default: Date.now
-  },
-  products: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Product'
-    }
-  ]
+  }
 });
 
 const Contract = mongoose.model('Contract', contractSchema);

@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "contract_title": "Java Function Build",
+        "contract_description": "This project will require the contractor to build a Java function.",
+        "category": "Java",
+        "price": 400.00
+    },
+    {
+        "id": 2,
+        "user_id": 2,
+        "contract_title": "Python Function Build",
+        "contract_description": "This project will require the contractor to build a Python function.",
+        "category": "Python",
+        "price": 500.00
+    },
+    {
+        "id": 3,
+        "user_id": 1,
+        "contract_title": "Ruby Function Build",
+        "contract_description": "This project will require the contractor to build a Ruby function.",
+        "category": "Ruby",
+        "price": 450.00
+    },
+    {
+        "id": 4,
+        "user_id": 2,
+        "contract_title": "C++ Function Build",
+        "contract_description": "This project will require the contractor to build a C++ function.",
+        "category": "C++",
+        "price": 550.00
+    }
+]
