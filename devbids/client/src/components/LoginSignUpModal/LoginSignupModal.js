@@ -5,6 +5,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 
 export default function LoginSignupModal(props) {
+  const [showModal, setShowModal] = useState(false);
   return (
     <Modal
       size="lg"
