@@ -4,6 +4,11 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Navbar from "./components/Navbar/Navbar";
 import "./App.css";
 
+const client = new ApolloClient({
+  uri: "/graphql",
+  cache: new InMemoryCache(),
+});
+
 function App() {
   return (
     <div className="App">
