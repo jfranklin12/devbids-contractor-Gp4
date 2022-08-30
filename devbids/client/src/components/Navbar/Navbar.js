@@ -25,19 +25,17 @@ export default function Navbar() {
 
         <ul className="menu__box">
           <li>
-            <a className="menu__item" href="#">
+            <Button className="menu__item" href="#">
               Profile
-            </a>
+            </Button>
           </li>
           <li>
-            <a className="menu__item" href="#">
+            <Button className="menu__item" href="#">
               Contracts
-            </a>
+            </Button>
           </li>
           <li>
-            <a className="menu__item" href="#">
-              Login/ Sign Up
-            </a>
+            <Button onClick={handleShow}>Login or Sign Up</Button>
           </li>
         </ul>
       </div>
@@ -48,10 +46,10 @@ export default function Navbar() {
         <div className="user-links">
           <ul className="nav-links">
             <li>
-              <a href="#">Profile</a>
+              <Button href="#">Profile</Button>
             </li>
             <li>
-              <a href="#">Contracts</a>
+              <Button href="#">Contracts</Button>
             </li>
           </ul>
         </div>
