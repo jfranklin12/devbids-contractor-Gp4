@@ -1,0 +1,22 @@
+[
+    {
+        "username": "vyang",
+        "email": "vyang@wahoo.com",
+        "password": "Vince1234"
+    },
+    {
+        "username": "mmtaylor",
+        "email": "mmtaylor@wahoo.com",
+        "password": "MaryMargaret1234"
+    },
+    {
+        "username": "hsteffner",
+        "email": "hsteffner@wahoo.com",
+        "password": "Hunter1234"
+    },
+    {
+        "username": "jfranklin",
+        "email": "jfranklin@wahoo.com",
+        "password": "Jules1234"
+    }
+]
