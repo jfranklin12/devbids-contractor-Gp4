@@ -11,7 +11,7 @@ const commentSchema = new Schema({
     required: true
   },
   contractId: {
-    type: Int,
+    type: Number,
     ref: 'Contract',
     required: true
   },

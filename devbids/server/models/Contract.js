@@ -22,7 +22,7 @@ const contractSchema = new Schema({
     required: true
   },
   price: {
-    type: Float,
+    type: Decimal128,
     min: 0.99
   },
   contractDate: {
