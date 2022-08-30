@@ -31,11 +31,9 @@ export default function LoginSignupModal(props) {
           <Tab.Content>
             <Tab.Pane eventKey="login">
               <LoginForm handleModalClose={() => setShowModal(false)} />
-              Login
             </Tab.Pane>
             <Tab.Pane eventKey="signup">
               <SignUpForm handleModalClose={() => setShowModal(false)} />
-              Signup
             </Tab.Pane>
           </Tab.Content>
         </Modal.Body>
