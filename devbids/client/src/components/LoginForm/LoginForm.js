@@ -1,13 +1,12 @@
-// see SignupForm.js for comments
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-// import { loginUser } from "../utils/API"; don't need this anymore
 import Auth from "../utils/";
 
-function LoginForm() {
+export default function LoginForm() {
   return (
     <Form>
+      <div>Welcome Back! Log in below!</div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
@@ -18,10 +17,8 @@ function LoginForm() {
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        Log In
       </Button>
     </Form>
   );
 }
-
-export default LoginForm;
