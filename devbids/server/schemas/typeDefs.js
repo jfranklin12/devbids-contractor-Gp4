@@ -9,47 +9,46 @@ const typeDefs = gql`
   type Contract {
     _id: ID
     username: [User]
+    title: String!
     description: String!
-    price: Float
     category: [Category]
-    token: Int
-    contractDate: Date!
-
+    price: Float
+    contractDate: Date
   }
 
   type Response {
     _id: ID
-    username: [User]
-    description: String
+    username: [User]!
+    description: String!
+    contractId: [Contract]!
+    category: [Category]!
     price: Float
-    category: [Category]
-    responseDate: Date!
+    responseDate: Date
   }
 
   type User {
     _id: ID
     userName: String
     email: String
-    joinDate: Date!
+    joinDate: Date
   }
 
   type Transaction {
     _id: ID
-    ContractUser: [Contract]!
-    ResponseUser: [Response]!
-    ContractID: [Contract]!
+    contractUser: [Contract]!
+    responseUser: [Response]!
+    contractId: [Contract]!
     category: [Category]!
     price: Float
-    transactionDate: Date!
+    transactionDate: Date
   }
-
-  type Query {
-    categories: [Category]
-    contracts(category: ID, name: String): [Contract]
-    response(_id: ID!): [Response]
-    user: User
-    order(_id: ID!): Contract
-    checkout(products: [ID]!): Checkout
+  
+  type Comment {
+    _id: ID
+    username: [User]!
+    description: String!
+    contractId: [Contract]!
+    commentDate: Date
   }
 
   type Mutation {

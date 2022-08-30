@@ -10,15 +10,19 @@ const responseSchema = new Schema({
     type: String,
     required: true,
   },
-  price: {
-    type: Float,
+  contractId: {
+    type: Int,
+    ref: "Contract",
     required: true,
-    min: 0.99,
   },
   category: {
     type: Schema.Types.ObjectId,
     ref: "Category",
     required: true,
+  },
+  price: {
+    type: Float,
+    min: 0.99,
   },
   responseDate: {
     type: Date,

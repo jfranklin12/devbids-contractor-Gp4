@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "client_user": 1,
+        "contractor_user": 3,
+        "contract_id": 1,
+        "category": "Java",
+        "price": 700.00
+    },
+    {
+        "id": 2,
+        "client_user": 2,
+        "contractor_user": 3,
+        "contract_id": 2,
+        "category": "Python",
+        "price": 550.00
+    },
+    {
+        "id": 3,
+        "client_user": 1,
+        "contractor_user": 4,
+        "contract_id": 3,
+        "category": "Ruby",
+        "price": 700.00
+    },
+    {
+        "id": 2,
+        "client_user": 1,
+        "contractor_user": 4,
+        "contract_id": 4,
+        "category": "C++",
+        "price": 600.00
+    }
+]
