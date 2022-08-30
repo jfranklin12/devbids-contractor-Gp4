@@ -3,6 +3,7 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    // get user info
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id);
@@ -11,7 +12,26 @@ const resolvers = {
       }
       throw new AuthenticationError("Log in unsuccessful!");
     },
-    // contracts
+    // contracts all contracts
+    contracts: async () => {
+      return await Contract.find();
+    },
+    userContracts: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: 'contract',
+          populate: 'contract'
+        });
+
+        return user.contract.id(_id);
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
+
+  
+
   },
   // Mutation: {
   //   createMatchup: async (parent, args) => {

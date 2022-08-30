@@ -53,9 +53,9 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    getAllContracts: [Contract]
-    getUserContracts(user: ID!): [Contract]
-    getCategoryContracts(category: ID!): [Contract]
+    contracts: [Contract]
+    userContracts(user: ID!): [Contract]
+    categoryContracts(category: ID!): [Contract]
   }
 
   type Mutation {
