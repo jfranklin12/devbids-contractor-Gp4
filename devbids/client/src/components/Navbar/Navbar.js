@@ -63,7 +63,7 @@ export default function Navbar() {
         <div className="login-links">
           <ul className="nav-links">
             <li>
-              <Button onClick={handleShow}>Login/Sign Up</Button>
+              <Button onClick={handleShow}>Login or Sign Up</Button>
             </li>
           </ul>
         </div>
