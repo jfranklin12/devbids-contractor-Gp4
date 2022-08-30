@@ -1,14 +1,9 @@
 const {Schema, model} = require('mongoose');
 
 
-<<<<<<< HEAD
-const responseSchema = new Schema({
-  username: {
-=======
 
 const responseSchema = new Schema({
-  name: {
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
+  username: {
     type: String,
     required: true,
     trim: true
@@ -33,10 +28,8 @@ const responseSchema = new Schema({
   },
 });
 
-<<<<<<< HEAD
-const Response = mongoose.model('Response', responseSchema);
-=======
+
 const Response = model('Response', responseSchema);
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
+
 
 module.exports = Response;

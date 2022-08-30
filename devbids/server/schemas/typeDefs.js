@@ -13,11 +13,8 @@ const typeDefs = gql`
     price: Float
     category: [Category]
     token: Int
-<<<<<<< HEAD
     contractDate: Date!
-=======
-    requestDate: String
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
+
   }
 
   type Response {
@@ -26,18 +23,13 @@ const typeDefs = gql`
     description: String
     price: Float
     category: [Category]
-<<<<<<< HEAD
     responseDate: Date!
-=======
-    requestDate: String
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
   }
 
   type User {
     _id: ID
     userName: String
     email: String
-<<<<<<< HEAD
     joinDate: Date!
   }
 
@@ -49,22 +41,13 @@ const typeDefs = gql`
     category: [Category]!
     price: Float
     transactionDate: Date!
-=======
-    requests: [Request]
-    responses: [Response]
-    
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
   }
-
-  
 
   type Query {
     categories: [Category]
     contracts(category: ID, name: String): [Contract]
     response(_id: ID!): [Response]
     user: User
-
-<<<<<<< HEAD
     order(_id: ID!): Contract
     checkout(products: [ID]!): Checkout
   }
@@ -72,19 +55,13 @@ const typeDefs = gql`
   type Mutation {
     addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
     addContract(products: [ID]!): Contract
-=======
-    order(_id: ID!): Request
-    
-  }
-
-  type Mutation {
-    addRequest(products: [ID]!): Request
->>>>>>> 519f41ac381ca287dd896d83b8046734e31556ba
+    addResponse(products: [ID]!): Request
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateResponse(_id: ID!, quantity: Int!): Response
     
   }
 `;
+
 // This was commented out during debugging
 // const typeDefs = gql`
 //   type Category {
