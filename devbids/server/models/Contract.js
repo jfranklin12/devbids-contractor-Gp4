@@ -12,10 +12,10 @@ const contractSchema = new Schema({
     type: String,
     required: true
   },
-  price: {
-    type: Float,
-    min: 0.99
-  },
+  // price: {
+  //   type: Float,
+  //   min: 0.99
+  // },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',

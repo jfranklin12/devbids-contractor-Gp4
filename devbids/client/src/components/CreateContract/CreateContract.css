@@ -1,0 +1,22 @@
+
+.form-container {
+    margin: 1.5rem;
+    border: 1px solid #000;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-control {
+    margin: 1rem;
+    /* width: 75%; */
+    display: flex;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+}
+
+
