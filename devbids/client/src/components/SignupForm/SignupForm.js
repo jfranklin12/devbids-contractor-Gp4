@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-import Auth from "../utils/";
+// import Auth from "../utils/";
 
 export default function SignUpForm() {
   return (
