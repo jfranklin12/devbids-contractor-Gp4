@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
-import LoginForm from "../LoginForm/LoginForm";
+import { LoginForm } from "../LoginForm/LoginForm";
 import SignUpForm from "../SignUpForm/SignUpForm";
 
 export default function LoginSignupModal(props) {

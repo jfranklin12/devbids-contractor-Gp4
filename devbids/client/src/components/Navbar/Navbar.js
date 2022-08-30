@@ -36,12 +36,7 @@ export default function Navbar() {
           </li>
           <li>
             <a className="menu__item" href="#">
-              Login
-            </a>
-          </li>
-          <li>
-            <a className="menu__item" href="#">
-              Register
+              Login/ Sign Up
             </a>
           </li>
         </ul>
