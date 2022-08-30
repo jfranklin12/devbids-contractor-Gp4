@@ -1,4 +1,4 @@
-
+/* I'm waiting to add more background styling until we know the color scheme */
 .form-container {
     margin: 1.5rem;
     border: 1px solid #000;
@@ -58,6 +58,3 @@
     transition: .1s;
 }
 
-@media (max-width: 720px) {
-    
-}
