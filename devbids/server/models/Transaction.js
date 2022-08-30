@@ -2,17 +2,17 @@ const { Schema, model } = require('mongoose')
 
 const transactionSchema = new Schema({
   contractUser: {
-    type: Int,
+    type: Number,
     ref: 'Contract',
     required: true
   },
   responseUser: {
-    type: Int,
+    type: Number,
     ref: 'Response',
     required: true
   },
   contractId: {
-    type: Int,
+    type: Number,
     ref: 'Response',
     required: true
   },
@@ -22,7 +22,7 @@ const transactionSchema = new Schema({
     required: true
   },
   price: {
-    type: Float,
+    type: Decimal128,
     min: 0.99
   },
   transactionDate: {
