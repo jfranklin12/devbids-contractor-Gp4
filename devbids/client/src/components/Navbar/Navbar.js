@@ -1,8 +1,22 @@
-import './Navbar.css'
+import React, { useState } from "react";
+import "./Navbar.css";
+import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
+import Button from "react-bootstrap/Button";
 
 export default function Navbar() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    setShow(true);
+  };
+
   return (
     <nav className="nav">
+      <LoginSignupModal
+        show={show}
+        handleClose={handleClose}
+      ></LoginSignupModal>
       <div className="hamburger-menu">
         <input id="menu__toggle" type="checkbox" />
         <label className="menu__btn" for="menu__toggle">
@@ -49,14 +63,11 @@ export default function Navbar() {
         <div className="login-links">
           <ul className="nav-links">
             <li>
-              <a href="#">Login</a>
-            </li>
-            <li>
-              <a href="#">Register</a>
+              <Button onClick={handleShow}>Login/Sign Up</Button>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
