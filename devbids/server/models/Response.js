@@ -1,7 +1,5 @@
 const {Schema, model} = require('mongoose');
 
-
-
 const responseSchema = new Schema({
   username: {
     type: String,
@@ -12,15 +10,19 @@ const responseSchema = new Schema({
     type: String,
     required: true
   },
-  // price: {
-  //   type: Float,
-  //   required: true,
-  //   min: 0.99
-  // },
+  contractId: {
+    type: Int,
+    ref: 'Contract',
+    required: true
+  },
   category: {
     type: Schema.Types.ObjectId,
     ref: 'Category',
     required: true
+  },
+  price: {
+    type: Float,
+    min: 0.99
   },
   responseDate: {
     type: Date,

@@ -1,16 +1,33 @@
 const { Schema, model } = require('mongoose')
 
 const transactionSchema = new Schema({
-  products: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Product',
-    },
-  ],
+  contractUser: {
+    type: Int,
+    ref: 'Contract',
+    required: true
+  },
+  responseUser: {
+    type: Int,
+    ref: 'Response',
+    required: true
+  },
+  contractId: {
+    type: Int,
+    ref: 'Response',
+    required: true
+  },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
+  price: {
+    type: Float,
+    min: 0.99
+  },
   transactionDate: {
-    // This was changed from Date to String for testing
-    type: String,
-    default: '2',
+    type: Date,
+    default: Date.now,
   },
 })
 
