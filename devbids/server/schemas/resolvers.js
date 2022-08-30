@@ -1,12 +1,18 @@
-const { Tech, Matchup } = require('../models');
+const { Category, Contract, Response, User, Transaction, Comment } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
-  // Query: {
-  //   me: async (parent, {}) => {
-  //     return User.findOne
+  Query: {
+    user: async (parent, args, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id);
 
-  //   }
-  // },
+        return user;
+      }
+      throw new AuthenticationError("Log in unsuccessful!");
+    },
+    // contracts
+  },
   // Mutation: {
   //   createMatchup: async (parent, args) => {
   //     const matchup = await Matchup.create(args);
