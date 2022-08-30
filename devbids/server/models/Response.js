@@ -11,7 +11,7 @@ const responseSchema = new Schema({
     required: true,
   },
   contractId: {
-    type: Int,
+    type: Number,
     ref: "Contract",
     required: true,
   },
@@ -21,7 +21,7 @@ const responseSchema = new Schema({
     required: true,
   },
   price: {
-    type: Float,
+    type: Decimal128,
     min: 0.99,
   },
   responseDate: {
