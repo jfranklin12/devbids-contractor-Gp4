@@ -9,12 +9,18 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+    <ApolloProvider client={client}>
+      <Router>
+      
+          <Navbar />
+      
+    
+      </Router>
+    </ApolloProvider>
   );
+}
 }
 
 export default App;
