@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import CreateContract from "./pages/CreateContract/CreateContract";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Profile from "./pages/Profile/Profile";
@@ -39,6 +40,7 @@ function App() {
           </Route> */}
         </Switch>
       </Router>
+      <Footer></Footer>
     </ApolloProvider>
   );
 }
