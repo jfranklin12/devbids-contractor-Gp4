@@ -5,8 +5,7 @@ import SearchBar from "../components/SearchBar/SearchBar"
 // import Auth from '../utils/auth';
 
 const Homepage = () => {
-
-    const [loading, data] = useState([]);
+    const [loading, data] = useQuery([]);
 
 return (
     <>
@@ -17,9 +16,6 @@ return (
             </Container>
         </Jumbotron>
         <Container>
-            <Div>
-    
-            </Div>
         </Container>
 
     </>

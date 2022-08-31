@@ -5,6 +5,7 @@ const SearchBar = () => {
     const [userSearch, setUserSearch] = useState([]);
     const [searchInput, setSearchInput] = useState('');
 
+    const [login, { error }] = useMutation([])
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -12,7 +13,7 @@ const SearchBar = () => {
             const url  = `localhost`
             const query = `${url}${searchInput}`
 
-            const response = await 
+            const response = await fetch(query)
 
 
         } catch (err) {
