@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+
 :root {
   --nav-color: linear-gradient(#777, #444);
 }
@@ -115,6 +117,24 @@ ul {
   background-color: #cfd8dc;
 }
 
+.logo {
+  font-size: 25px !important;
+}
+
+.nav-text {
+  font-size: 23px !important;
+}
+
+.navBarFont {
+  margin: 27px 27px 27px 27px;
+  font-family: "Bungee", cursive;
+  font-size: 35px;
+  color: #494ffe;
+}
+
+.navBarFont:hover {
+  color: #262984;
+}
 @media (max-width: 720px) {
   .hamburger-menu {
     display: block;

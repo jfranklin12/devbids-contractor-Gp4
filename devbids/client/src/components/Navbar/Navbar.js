@@ -1,9 +1,78 @@
-import React, { useState } from "react";
-import "./Navbar.css";
-import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
-import Button from "react-bootstrap/Button";
+// import React, { useState } from "react";
+// import "./Navbar.css";
+// import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
+// import Button from "react-bootstrap/Button";
+// import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+// export default function Navbar() {
+//   const [show, setShow] = useState(false);
+
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => {
+//     setShow(true);
+//   };
+
+//   return (
+//     <nav className="nav">
+//       <LoginSignupModal
+//         show={show}
+//         handleClose={handleClose}
+//       ></LoginSignupModal>
+//       <div className="hamburger-menu">
+//         <input id="menu__toggle" type="checkbox" />
+//         <label className="menu__btn" for="menu__toggle">
+//           <span></span>
+//         </label>
+
+//         <ul className="menu__box">
+//           <li>
+//             <NavLink to="/profile" className="menu__item">
+//               Profile
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink to="/profile" className="menu__item">
+//               Contracts
+//             </NavLink>
+//           </li>
+//           <li>
+//             <NavLink to="/profile">Login or Sign Up</NavLink>
+//           </li>
+//         </ul>
+//       </div>
+//       <div className="navbar">
+//         <div className="company-name">
+//           <h1>Devbids</h1>
+//         </div>
+//         <div className="user-links">
+//           <ul className="nav-links">
+//             <NavLink to="/profile">Profile</NavLink>
+
+//             <NavLink to="/profile">Contracts</NavLink>
+//           </ul>
+//         </div>
+//         <div className="login-links">
+//           <ul className="nav-links">
+//             <li>
+//               <Button onClick={handleShow}>Login or Sign Up</Button>
+//             </li>
+//           </ul>
+//         </div>
+//       </div>
+//     </nav>
+//   );
+// }
+
+import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
+import "./Navbar.css";
+
+function BasicExample() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -12,57 +81,30 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="nav">
+    <Navbar bg="dark" variant="dark" className="py-4" expand="lg">
       <LoginSignupModal
         show={show}
         handleClose={handleClose}
       ></LoginSignupModal>
-      <div className="hamburger-menu">
-        <input id="menu__toggle" type="checkbox" />
-        <label className="menu__btn" for="menu__toggle">
-          <span></span>
-        </label>
-
-        <ul className="menu__box">
-          <li>
-            <Button className="menu__item" href="#">
-              Profile
-            </Button>
-          </li>
-          <li>
-            <Button className="menu__item" href="#">
-              Contracts
-            </Button>
-          </li>
-          <li>
+      <Container>
+        <Navbar.Brand href="#home" className="logo">
+          DevBids
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home" className="nav-text">
+              Home
+            </Nav.Link>
+            <Nav.Link href="#link" className="nav-text">
+              Link
+            </Nav.Link>
             <Button onClick={handleShow}>Login or Sign Up</Button>
-          </li>
-        </ul>
-      </div>
-      <div className="navbar">
-        <div className="company-name">
-          <h1>Devbids</h1>
-        </div>
-        <div className="user-links">
-          <ul className="nav-links">
-            <li>
-              <Button href="#">Profile</Button>
-            </li>
-            <li>
-              <Button href="#">Contracts</Button>
-            </li>
-          </ul>
-        </div>
-        <div className="login-links">
-          <ul className="nav-links">
-            <li>
-              <Button onClick={handleShow} className="nav-log-sign">
-                Login or Sign Up
-              </Button>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
+
+export default BasicExample;
