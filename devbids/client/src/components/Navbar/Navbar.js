@@ -68,6 +68,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
 import "./Navbar.css";
@@ -93,12 +94,12 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="nav-text">
-              Home
-            </Nav.Link>
-            <Nav.Link href="#link" className="nav-text">
-              Link
-            </Nav.Link>
+            <Link to="/profile" className="nav-text">
+              Profile
+            </Link>
+            <Link to="/contactUs" className="nav-text">
+              Contact Us
+            </Link>
             <Button onClick={handleShow}>Login or Sign Up</Button>
           </Nav>
         </Navbar.Collapse>

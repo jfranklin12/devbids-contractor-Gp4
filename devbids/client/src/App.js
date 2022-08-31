@@ -4,9 +4,10 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 import Navbar from "./components/Navbar/Navbar";
 import CreateContract from "./pages/CreateContract/CreateContract";
-import ContactUs from "./pages/CreateContract/CreateContract";
+import ContactUs from "./pages/ContactUs/ContactUs";
 import Profile from "./pages/Profile/Profile";
 // import Homepage from "./pages/Homepage/Homepage.js";
+//import Contracts from "./pages/Contracts/Contracts.js
 
 import "./App.css";
 const client = new ApolloClient({
@@ -18,15 +19,24 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <Navbar />
-          <Switch>
-            {/* <Route path="/homepage" element={<Homepage />} /> */}
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/create-contract" element={<CreateContract />} />
-            <Route path="/contact-us" element={<ContactUs />} />
-          </Switch>
-        </>
+        <Navbar />
+        <Switch>
+          <Route path="/profile">
+            <Profile />
+          </Route>
+          <Route path="/createContract">
+            <CreateContract />
+          </Route>
+          <Route path="/contactUs">
+            <ContactUs />
+          </Route>
+          {/* <Route path="/">
+            <Homepage />
+          </Route> */}
+          {/* <Route path="/contracts">
+            <Contracts />
+          </Route> */}
+        </Switch>
       </Router>
     </ApolloProvider>
   );
