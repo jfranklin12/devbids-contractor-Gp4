@@ -94,7 +94,7 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="nav-links" id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/profile" className="nav-text">
+            <Link to="/contracts" className="nav-text">
               Contracts
             </Link>
             <Link to="/profile" className="nav-text">
