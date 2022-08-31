@@ -59,10 +59,6 @@ import './Homepage.css'
                     </Col>
                 </Row>
             </Container>
-
-            <footer className = 'fixed-bottom text-center text-light bg-secondary'>
-                <p>© DevBids 2022.</p>
-            </footer>
         </>
     );
 };
