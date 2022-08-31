@@ -37,7 +37,7 @@ export default function Homepage() {
                 </Link> */}
       </Jumbotron>
       <Container>
-        <Row className="aboutUs">
+        <Row className="aboutUs bg-light p-3">
           <h1>About Us</h1>
 
           <p>
@@ -55,7 +55,7 @@ export default function Homepage() {
           </p>
         </Row>
 
-        <Row>
+        <Row className="bg-light p-3">
           <Col>
             <Row>
               <h1>Use DevBids...</h1>
