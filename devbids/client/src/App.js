@@ -8,7 +8,7 @@ import CreateContract from "./pages/CreateContract/CreateContract";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Profile from "./pages/Profile/Profile";
 import Homepage from "./pages/Homepage/Homepage";
-//import Contracts from "./pages/Contracts/Contracts.js
+import Contracts from "./pages/Contracts/Contracts";
 
 import "./App.css";
 const client = new ApolloClient({
@@ -19,7 +19,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-
       <Router>
         <Navbar />
         <CreateContract />
@@ -36,9 +35,9 @@ function App() {
           <Route path="/">
             <Homepage />
           </Route>
-          {/* <Route path="/contracts">
+          <Route path="/contracts">
             <Contracts />
-          </Route> */}
+          </Route>
         </Switch>
       </Router>
       <Footer></Footer>
