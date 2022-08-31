@@ -1,5 +1,6 @@
 import "./ContractCard.css";
 import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
 
 function ContractCard() {
   return (
@@ -25,6 +26,9 @@ function ContractCard() {
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
           Published: mm43678
         </Card.Subtitle>
+        <Button variant="primary" type="submit">
+          Place a Bid!
+        </Button>
       </Card.Body>
     </Card>
   );
