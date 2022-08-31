@@ -13,21 +13,20 @@ function ResponseCard() {
           You have a response!
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Price Offer: $700
+          Price Offer:
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Completion Date: 8/31/22
+          Completion Date:
         </Card.Subtitle>
         <Card.Text style={{ color: "#5b57db", fontSize: "18px" }}>
-          Description: I have 5 years experience with React. I will be able to
-          complete the homepage, blah blah blah, quickly blah blah blah
+          Response Description:
         </Card.Text>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          Bid Placed By: vince456
+          Bid Placed By:
         </Card.Subtitle>
 
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          LinkedIn: vince456@linkedin.com
+          LinkedIn:
         </Card.Subtitle>
         <Button type="submit" className="accept-button">
           Accept Bid!
