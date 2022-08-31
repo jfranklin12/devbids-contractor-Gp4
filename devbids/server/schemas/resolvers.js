@@ -70,8 +70,7 @@ const resolvers = {
           $addToSet: { responses: { descritpion } },
         },
         {
-          new: true,
-          runValidators: true,
+          new: true
         }
       );
     },
@@ -87,7 +86,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     // delete response
-    removeComment: async (parent, { contractId, responseId }) => {
+    deleteResponse: async (parent, { contractId, responseId }) => {
       return Contract.findOneAndUpdate(
         { _id: contractId },
         { $pull: { responses: { _id: responseId } } },
