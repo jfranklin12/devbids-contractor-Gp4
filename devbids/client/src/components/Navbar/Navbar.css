@@ -1,15 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+ @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 
 :root {
   --nav-color: linear-gradient(#777, #444);
 }
-
+/*
 .nav {
   background-image: var(--nav-color);
 }
-.navbar {
+.navbar-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
@@ -155,4 +155,33 @@ ul {
   .login-links {
     display: none;
   }
+} */
+.nav-container {
+  background-image: var(--nav-color);
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-links a {
+  color: #fff;
+  align-self: center;
+  margin: 1rem;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+.nav-links a:hover {
+  color: #fff;
+  text-decoration: none;
+  scale: 1.08;
+  transition: .1s;
+}
+.nav-links button:hover {
+  scale: 1.05;
+  transition: .1s;
+  border: .5px #000 solid;
+}
+.logo h1{
+  font-size: 1.8rem;
 }
