@@ -25,6 +25,7 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now
   }
+// do we want to add contracts?
 });
 
 userSchema.pre('save', async function(next) {

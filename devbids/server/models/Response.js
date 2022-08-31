@@ -1,6 +1,10 @@
-const { Schema, model } = require("mongoose");
+const { Schema, Types } = require("mongoose");
 
 const responseSchema = new Schema({
+  responseId: {
+    type: Schema.Types.ObjectId,
+    default: () => new Types.ObjectId()
+  },
   username: {
     type: String,
     required: true,
@@ -21,7 +25,7 @@ const responseSchema = new Schema({
     required: true,
   },
   price: {
-    type: Decimal128,
+    type: Number,
     min: 0.99,
   },
   responseDate: {
@@ -30,6 +34,4 @@ const responseSchema = new Schema({
   },
 });
 
-const Response = model("Response", responseSchema);
-
-module.exports = Response;
+module.exports = responseSchema;
