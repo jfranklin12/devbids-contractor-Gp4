@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from 'react';
+import { Form, Col, Button } from "react-bootstrap";
+import { useMutation } from '@apollo/client'; 
 import './SearchBar.css'
 
 const SearchBar = () => {
@@ -43,3 +46,5 @@ return (
     </Form>
 );
 };
+
+export default SearchBar;
