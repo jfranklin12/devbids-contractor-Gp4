@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
+const { Schema, model } = require('mongoose');
+const responseSchema = require('./Response');
+const categorySchema = require('./Category');
 
 const contractSchema = new Schema({
   username: {
@@ -16,13 +16,10 @@ const contractSchema = new Schema({
     type: String,
     required: true
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  },
+  category: [categorySchema],
+  response: [responseSchema],
   price: {
-    type: Decimal128,
+    type: Number,
     min: 0.99
   },
   contractDate: {
@@ -31,6 +28,6 @@ const contractSchema = new Schema({
   }
 });
 
-const Contract = mongoose.model('Contract', contractSchema);
+const Contract = model('Contract', contractSchema);
 
 module.exports = Contract;

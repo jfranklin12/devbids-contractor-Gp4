@@ -82,17 +82,17 @@ function NavBar() {
   };
 
   return (
-    <Navbar bg="dark" variant="dark" className="py-4" expand="lg">
+    <Navbar variant="dark" className="py-3 nav-container" expand="lg">
       <LoginSignupModal
         show={show}
         handleClose={handleClose}
       ></LoginSignupModal>
       <Container>
         <Navbar.Brand href="/home" className="logo">
-          DevBids
+          <h1>Devbids</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Collapse className="nav-links" id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/profile" className="nav-text">
               Contracts
