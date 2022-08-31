@@ -1,30 +1,37 @@
 import "./ResponseCard.css";
 import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
+import React from "react";
 
 function ResponseCard() {
   return (
     <Card style={{ width: "50rem" }}>
       <Card.Body>
-        <Card.Title style={{ color: "#5b57db", fontSize: "25px" }}>
-          Job Title: Style Homepage for Theater Company
+        <Card.Title
+          style={{ color: "#97DB4F", fontSize: "30px", fontWeight: "bold" }}
+        >
+          You have a response!
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Skills Required: React
+          Price Offer: $700
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Price Range: $500
-        </Card.Subtitle>
-        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Completion By: 8/31/22
+          Completion Date: 8/31/22
         </Card.Subtitle>
         <Card.Text style={{ color: "#5b57db", fontSize: "18px" }}>
-          Job Description: This is a blah blah blah blah job that requires blah
-          blah blah. We need someone to blah blah blah and update blah blah
-          blah. We need an experienced blah blah to work with blha blha blah.
+          Description: I have 5 years experience with React. I will be able to
+          complete the homepage, blah blah blah, quickly blah blah blah
         </Card.Text>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          Published: mm43678
+          Bid Placed By: vince456
         </Card.Subtitle>
+
+        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
+          LinkedIn: vince456@linkedin.com
+        </Card.Subtitle>
+        <Button type="submit" className="accept-button">
+          Accept Bid!
+        </Button>
       </Card.Body>
     </Card>
   );
