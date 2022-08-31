@@ -88,7 +88,7 @@ function BasicExample() {
         handleClose={handleClose}
       ></LoginSignupModal>
       <Container>
-        <Navbar.Brand href="#home" className="logo">
+        <Navbar.Brand href="/home" className="logo">
           DevBids
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

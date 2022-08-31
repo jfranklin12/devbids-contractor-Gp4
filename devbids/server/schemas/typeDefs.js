@@ -12,7 +12,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     category: [Category]
-    price: Decimal128
+    price: Number
     contractDate: Date
   }
 
@@ -22,7 +22,7 @@ const typeDefs = gql`
     description: String!
     contractId: [Contract]!
     category: [Category]!
-    price: Decimal128
+    price: Number
     responseDate: Date
   }
 
@@ -39,7 +39,7 @@ const typeDefs = gql`
     responseUser: [Response]!
     contractId: [Contract]!
     category: [Category]!
-    price: Decimal128
+    price: Number
     transactionDate: Date
   }
   
@@ -62,7 +62,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, password: String!, email: String!, password: String!): Auth
     addContract(contract: [ID]!): Contract
-    addResponse(products: [ID]!): Request
+    addResponse(contract: [ID]!): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateResponse(_id: ID!, quantity: Int!): Response
     
