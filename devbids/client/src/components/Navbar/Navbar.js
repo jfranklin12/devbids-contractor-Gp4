@@ -95,6 +95,9 @@ function BasicExample() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link to="/profile" className="nav-text">
+              Contracts
+            </Link>
+            <Link to="/profile" className="nav-text">
               Profile
             </Link>
             <Link to="/contactUs" className="nav-text">
