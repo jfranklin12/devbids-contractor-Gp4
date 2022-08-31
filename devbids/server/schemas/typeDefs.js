@@ -12,7 +12,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     category: [Category]
-    price: Decimal128
+    price: Number
     contractDate: Date
   }
 
@@ -22,7 +22,7 @@ const typeDefs = gql`
     description: String!
     contractId: Contract!
     category: [Category]!
-    price: Decimal128
+    price: Number
     responseDate: Date
   }
 
@@ -39,7 +39,7 @@ const typeDefs = gql`
     responseUser: Response!
     contractId: Contract!
     category: [Category]!
-    price: Decimal128
+    price: Number
     transactionDate: Date
   }
   

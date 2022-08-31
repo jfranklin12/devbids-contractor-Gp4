@@ -4,7 +4,7 @@ export default function CreateContract() {
   return (
     <div className="form-container">
       <h1>Create New Contract</h1>
-      <form className="form-control">
+      <form className="form">
         <div className="input-section">
           <div className="form-section">
             <h2>Contact Information</h2>
