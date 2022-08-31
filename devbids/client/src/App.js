@@ -5,6 +5,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import CreateContract from "./pages/CreateContract/CreateContract";
+import ResponseToContract from "./components/ResponseToContract/ResponseToContract";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Profile from "./pages/Profile/Profile";
 import Homepage from "./pages/Homepage/Homepage";
@@ -22,7 +23,7 @@ function App() {
 
       <Router>
         <Navbar />
-        <CreateContract />
+        <ResponseToContract />
         <Switch>
           <Route path="/profile">
             <Profile />
