@@ -18,6 +18,10 @@
   color: #fff;
   background: radial-gradient(rgb(112, 174, 218),rgb(87, 72, 218));
 }
+.form-container p {
+  font-size: 1.2rem;
+  margin: 1.3rem;
+}
 .form {
   margin: 1rem;
 }
