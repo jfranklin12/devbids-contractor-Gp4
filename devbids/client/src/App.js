@@ -22,6 +22,7 @@ function App() {
 
       <Router>
         <Navbar />
+        <CreateContract />
         <Switch>
           <Route path="/profile">
             <Profile />
