@@ -1,4 +1,5 @@
 import "./Profile.css";
+import ContractCard from "../../components/ContractCard/ContractCard";
 
 export default function Profile() {
   return (
@@ -6,6 +7,9 @@ export default function Profile() {
       <div className="profile-title">Profile</div>
       <div className="contracts-container">
         <div className="my-contracts">My Contracts</div>
+        <div>
+          <ContractCard />
+        </div>
       </div>
     </div>
   );

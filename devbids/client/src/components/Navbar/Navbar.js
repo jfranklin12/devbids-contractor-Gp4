@@ -73,7 +73,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
 import "./Navbar.css";
 
-function BasicExample() {
+function NavBar() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -111,4 +111,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default NavBar;
