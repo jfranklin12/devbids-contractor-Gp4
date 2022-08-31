@@ -9,7 +9,7 @@ export default function ContactUs() {
         the form below and our eager team of Customer Service Representatives
         will work with you to resolve this issue.
       </p>
-      <form className="form-control">
+      <form className="form">
         <div className="input-section">
           <div className="form-section">
             <label for="contract-number">Contract Number</label>
