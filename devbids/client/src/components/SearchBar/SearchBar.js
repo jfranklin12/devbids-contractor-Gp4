@@ -31,6 +31,7 @@ return (
             <Col xs={12} md={8}>
                 <Form.Control
                     name = 'userSearch'
+                    className= 'searchBar'
                     // value = {userSearch}
                     // onChange = {(e) => setUserSearch(e.target.value)}
                     type = 'text'
