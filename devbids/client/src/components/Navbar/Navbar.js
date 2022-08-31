@@ -73,7 +73,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
 import "./Navbar.css";
 
-function BasicExample() {
+function NavBar() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -94,7 +94,7 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="nav-links" id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/profile" className="nav-text">
+            <Link to="/contracts" className="nav-text">
               Contracts
             </Link>
             <Link to="/profile" className="nav-text">
@@ -111,4 +111,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default NavBar;
