@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Category, Contract, Response, User, Transaction, Comment } = require('../models');
+const { Category, Contract, Response, User } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -40,7 +40,7 @@ const resolvers = {
       return contracts;
     },
   },
-  
+
   Mutation: {
     // add user mutation
     addUser: async (parent, args) => {
@@ -96,8 +96,6 @@ const resolvers = {
     },
 
   },
-},
-
-
+};
 
 module.exports = resolvers;
