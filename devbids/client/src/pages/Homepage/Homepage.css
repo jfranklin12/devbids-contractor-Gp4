@@ -1,4 +1,10 @@
 .aboutUs p {
-    font-size: larger;
-
+  font-size: larger;
+}
+.homepage-banner {
+    /* Image from https://unsplash.com/s/photos/collaboration */
+  background: url('../../../public/img/homepage-banner.jpg') no-repeat center
+    center/cover;
+  height: 50vh;
+  width: 100vw;
 }

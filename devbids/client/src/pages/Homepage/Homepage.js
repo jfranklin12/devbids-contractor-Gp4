@@ -18,6 +18,7 @@ import "./Homepage.css";
 export default function Homepage() {
   return (
     <>
+      <div className="homepage-banner"></div>
       <Jumbotron className="jumbotron text-light bg-secondary">
         <h1>Let's get to work.</h1>
         <SearchBar></SearchBar>
