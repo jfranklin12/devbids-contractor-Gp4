@@ -40,6 +40,7 @@ const resolvers = {
       return contracts;
     },
   },
+
   Mutation: {
     // login in mutation
     login: async (parent, { email, password }) => {
@@ -67,6 +68,17 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
+    addContract: async (parent, args, context) => {
+      if (context.user) {
+        const contract = new Contract({ contract });
+
+        await User.findByIdAndUpdate(context.user.id, {
+          $push: { contracts: contract },
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
 
     // addResponse mutation
 
