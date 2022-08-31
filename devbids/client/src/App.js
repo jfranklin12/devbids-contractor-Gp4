@@ -21,7 +21,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
-        <CreateContract />
+
         <Switch>
           <Route path="/profile">
             <Profile />
@@ -32,11 +32,11 @@ function App() {
           <Route path="/contactUs">
             <ContactUs />
           </Route>
-          <Route path="/">
-            <Homepage />
-          </Route>
           <Route path="/contracts">
             <Contracts />
+          </Route>
+          <Route path="/">
+            <Homepage />
           </Route>
         </Switch>
       </Router>
