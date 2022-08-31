@@ -1,1 +1,16 @@
+.profile-title {
+  font-size: 60px;
+}
+.my-contracts {
+  font-size: 30px;
+}
 
+.contracts-container {
+  margin: 1.5rem;
+  border: 1px solid #000;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
