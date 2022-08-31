@@ -8,6 +8,18 @@ export default function SignUpForm() {
     <Form>
       <div>Create your free account below!</div>
       <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>First Name</Form.Label>
+        <Form.Control type="email" placeholder="Enter first name" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control type="email" placeholder="Enter last name" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Username</Form.Label>
+        <Form.Control type="email" placeholder="Enter username" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
       </Form.Group>
