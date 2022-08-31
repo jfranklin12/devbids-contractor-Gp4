@@ -51,6 +51,13 @@ const typeDefs = gql`
     commentDate: Date
   }
 
+  type Query {
+    user: User
+    contracts: [Contract]
+    userContracts: [Contract]
+    category(categoryId: ID!): [Contract]
+  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, password: String!, email: String!, password: String!): Auth
