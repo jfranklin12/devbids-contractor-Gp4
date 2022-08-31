@@ -40,26 +40,8 @@ const resolvers = {
       return contracts;
     },
   },
-
+  
   Mutation: {
-    // login in mutation
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
-
-      if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const token = signToken(user);
-
-      return { token, user };
-    },
     // add user mutation
     addUser: async (parent, args) => {
       const user = await User.create(args);
@@ -81,6 +63,18 @@ const resolvers = {
     },
 
     // addResponse mutation
+    addResponse: async (parent, { contractId, descritpion }) => {
+      return Thought.findOneAndUpdate(
+        { _id: contractId },
+        {
+          $addToSet: { responses: { descritpion } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
 
     // update user mutation
     updateUser: async (parent, args, context) => {
@@ -92,9 +86,18 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    // update response
+    // delete response
+    removeComment: async (parent, { contractId, responseId }) => {
+      return Contract.findOneAndUpdate(
+        { _id: contractId },
+        { $pull: { responses: { _id: responseId } } },
+        { new: true }
+      );
+    },
 
   },
-};
+},
+
+
 
 module.exports = resolvers;
