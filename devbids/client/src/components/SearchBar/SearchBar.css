@@ -1,3 +1,18 @@
 .searchBar::placeholder {
     font-style: italic;
 }
+
+.searchBar:focus{
+    background-color: white;
+    border: 0;
+    border-radius: 2px;
+}
+
+.dataResult {
+    margin-top: 2px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+    overflow:hidden;
+    overflow-y: auto;
+    width: 100%;
+}

@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Col, Button } from "react-bootstrap";
+import { Form, Col, Button, Link } from "react-bootstrap";
 import { useMutation } from '@apollo/client'; 
 import './SearchBar.css'
+import SearchIcon from "@material-ui/icons/Search";
 
-const SearchBar = () => {
+const SearchBar = ({placeholder, data}) => {
 
-    // const [userSearch, setUserSearch] = useState([]);
-    // const [searchInput, setSearchInput] = useState('');
+    const [filteredData, setFilteredData] = useState([]);
+    const [userInput, setUserInput] = useState('');
 
     // const [login, { error }] = useMutation([])
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
 
-    //     try {
-    //         const url  = `localhost`
-    //         const query = `${url}${searchInput}`
+    const handleFilter = async (event) => {
+        event.preventDefault();
+        const searchContent  = event.target.value;
+        setUserInput(searchContent);
 
-    //         const response = await fetch(query)
+        const newFilter = data.filter((value) => {
+            return value.category.toLowerCase().includes(searchContent.toLowerCase());
+        });
+
+        if (searchContent === "") {
+            setFilteredData([]);
+        } else {
+            setFilteredData(searchContent);
+        }
+    };
+
+        // try {
+        //     const url  = `localhost`
+        //     const query = `${url}${searchInput}`
+
+        //     const response = await fetch(query)
 
 
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // }
+        // } catch (err) {
+        //     console.error(err);
+        // }
 
 return (
     <>
@@ -36,9 +50,17 @@ return (
                     // onChange = {(e) => setUserSearch(e.target.value)}
                     type = 'text'
                     size = 'lg'
-                    placeholder = 'Example: React'
+                    placeholder = {placeholder}
+                    data = {data}
                     />
+                <SearchIcon />
+                <Col className ="dataResult">
+                {data.map((value, key) => {
+                    return <a href= {value.category} className='autofillResult'>{value.category}</a>
+                })}
             </Col>
+            </Col>
+           
             <Col xs={12} md={4}>
                 <Button type='submit' size='lg'>
                     Search

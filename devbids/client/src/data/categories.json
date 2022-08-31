@@ -1,0 +1,41 @@
+[
+    {
+        "category": "C"
+    },
+    {
+        "category": "C++"
+    },
+    {
+        "category": "C#"
+    },
+    {
+        "category": "Cobol"
+    },
+    {
+        "category": "CSS"
+    },
+    {
+        "category": "Fortran"
+    },
+    {
+        "category": "GO"
+    },
+    {
+        "category": "HTML"
+    },
+    {
+        "category": "Java"
+    },
+    {
+        "category": "JavaScript"
+    },
+    {
+        "category": "Python"
+    },
+    {
+        "category": "Ruby"
+    },
+    {
+        "category": "Typescript"
+    }
+]
