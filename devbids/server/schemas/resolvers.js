@@ -68,16 +68,21 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
-    addContract: async (parent, args, context) => {
+    addContract: async (parent, { contractData }, context) => {
       if (context.user) {
-        const contract = new Contract({ contract });
-
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { contracts: contract },
+        const contract = await Contract.create({
+          contractData,
+          contractAuthor: context.user.username,
         });
-      }
 
-      throw new AuthenticationError('Not logged in');
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { contracts: contract._id } }
+        );
+
+        return contract;
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
     // addResponse mutation
