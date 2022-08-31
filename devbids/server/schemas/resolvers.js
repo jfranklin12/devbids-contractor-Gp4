@@ -37,23 +37,65 @@
 //     category: async (parent, { categoryId }) => {
 //       const contracts = await Contract.find({ _id: categoryId });
 
-//       return contracts;
-//     },
-//   },
-//   // Mutation: {
-//   //   createMatchup: async (parent, args) => {
-//   //     const matchup = await Matchup.create(args);
-//   //     return matchup;
-//   //   },
-//   //   createVote: async (parent, { _id, techNum }) => {
-//   //     const vote = await Matchup.findOneAndUpdate(
-//   //       { _id },
-//   //       { $inc: { [`tech${techNum}_votes`]: 1 } },
-//   //       { new: true }
-//   //     );
-//   //     return vote;
-//   //   },
-//   // },
-// };
+      return contracts;
+    },
+  },
 
-// module.exports = resolvers;
+  Mutation: {
+    // add user mutation
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    // addContract mutation
+    addContract: async (parent, args, context) => {
+      if (context.user) {
+        const contract = new Contract({ contract });
+
+        await User.findByIdAndUpdate(context.user.id, {
+          $push: { contracts: contract },
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+
+    // addResponse mutation
+    addResponse: async (parent, { contractId, descritpion }) => {
+      return Thought.findOneAndUpdate(
+        { _id: contractId },
+        {
+          $addToSet: { responses: { descritpion } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+
+    // update user mutation
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return User.findByIdAndUpdate(context.user.id, args, {
+          new: true,
+        });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    // delete response
+    removeComment: async (parent, { contractId, responseId }) => {
+      return Contract.findOneAndUpdate(
+        { _id: contractId },
+        { $pull: { responses: { _id: responseId } } },
+        { new: true }
+      );
+    },
+
+  },
+};
+
+module.exports = resolvers;
