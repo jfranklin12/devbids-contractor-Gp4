@@ -1,9 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 
-// import Auth from "../utils/";
-
-export default function LoginForm() {
+export function LoginForm() {
   return (
     <Form>
       <div>Welcome Back! Log in below!</div>
