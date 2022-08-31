@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import React from "react";
 
-function ResponseCard() {
+export default function ResponseCard() {
   return (
     <Card style={{ width: "50rem" }}>
       <Card.Body>
@@ -35,5 +35,3 @@ function ResponseCard() {
     </Card>
   );
 }
-
-export default ResponseCard;

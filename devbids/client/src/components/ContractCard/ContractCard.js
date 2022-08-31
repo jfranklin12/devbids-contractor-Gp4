@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "./ContractCard.css";
 import React from "react";
 
-function ContractCard() {
+export default function ContractCard() {
   return (
     <Card style={{ width: "50rem" }}>
       <Card.Body>
@@ -32,5 +32,3 @@ function ContractCard() {
     </Card>
   );
 }
-
-export default ContractCard;

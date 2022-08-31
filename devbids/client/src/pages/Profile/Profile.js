@@ -9,10 +9,7 @@ export default function Profile() {
       <div className="profile-title">Profile</div>
       <div className="contracts-container">
         <div className="my-contracts">My Contracts</div>
-        <div>
-          <ContractCard />
-          <ResponseCard />
-        </div>
+        <div></div>
       </div>
     </div>
   );
