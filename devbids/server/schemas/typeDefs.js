@@ -50,7 +50,7 @@ const typeDefs = gql`
     contractId: [Contract]!
     commentDate: String
   }
-  
+
   type Auth {
     token: ID
     user: User
@@ -65,7 +65,7 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, password: String!): Auth
+    addUser(username: String!, email: String! password: String!): Auth
     addContract(contract: ID!): Contract
     addResponse(contractId: ID!, description: String!): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User

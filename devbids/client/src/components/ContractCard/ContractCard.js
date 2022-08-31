@@ -1,39 +1,34 @@
-import "./ContractCard.css";
 import Card from "react-bootstrap/Card";
+import { Button } from "react-bootstrap";
+import "./ContractCard.css";
+import React from "react";
 
-function ContractCard() {
+export default function ContractCard() {
   return (
     <Card style={{ width: "50rem" }}>
       <Card.Body>
-        <Card.Title style={{ color: "blue", fontSize: "25px" }}>
-          Job Title: Style Homepage for Theater Company
+        <Card.Title style={{ color: "#5b57db", fontSize: "27px" }}>
+          Job Title:
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Skills Required: React
+          Skills Required:
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Price Range: $500
+          Price Range:
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          Completion By: 8/31/22
+          Completion Date:
         </Card.Subtitle>
-        <Card.Text style={{ fontSize: "18px" }}>
-          Job Description: This is a blah blah blah blah job that requires blah
-          blah blah. We need someone to blah blah blah and update blah blah
-          blah. We need an experienced blah blah to work with blha blha blah.
+        <Card.Text style={{ color: "#5b57db", fontSize: "18px" }}>
+          Job Description:
         </Card.Text>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          Vendor Name: Mary Margaret Taylor
+          Published by:
         </Card.Subtitle>
-        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          Phone: 678-678-6788
-        </Card.Subtitle>
-        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          Email: taylor.marymargaret@gmail.com
-        </Card.Subtitle>
+        <Button variant="primary" type="submit">
+          Place a Bid!
+        </Button>
       </Card.Body>
     </Card>
   );
 }
-
-export default ContractCard;
