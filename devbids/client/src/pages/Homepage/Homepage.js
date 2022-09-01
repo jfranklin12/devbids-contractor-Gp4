@@ -25,9 +25,7 @@ export default function Homepage() {
           </Button>
         </Col>
         <Col xs={12} md={2}>
-          <Link to="/createContract">
-            <Button size='lg'>Create a Contract</Button>
-          </Link>
+            <Button size='lg' to="/createContract">Create a Contract</Button>
         </Col>
         </Row>
       </Jumbotron>
