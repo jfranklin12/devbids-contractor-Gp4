@@ -25,7 +25,7 @@ class AuthService {
 
   login(idToken, user) {
     localStorage.setItem("id_token", idToken);
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
     window.location.assign("/contracts");
   }
 

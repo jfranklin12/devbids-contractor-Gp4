@@ -8,8 +8,8 @@ import Auth from "../../utils/auth";
 export function LoginForm() {
   // make state to remember what they type in forms
   const [userFormData, setUserFormData] = useState({
-    email: "",
-    password: "",
+    email: "mary@gmail.com",
+    password: "12345678",
   });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -41,7 +41,9 @@ export function LoginForm() {
     }
 
     try {
+      console.log("here in frontend");
       const res = await login({ variables: { ...userFormData } });
+      console.log(res);
 
       Auth.login(res.data.login.token, res.data.login.user);
     } catch (err) {

@@ -49,7 +49,7 @@ export default function SignUpForm() {
         variables: { ...userFormData },
       });
       console.log(data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token, data.login.user);
     } catch (err) {
       console.error(err);
     }
