@@ -6,6 +6,7 @@ import './ContractCard.css'
 
 export default function ContractCard() {
   const [contractBid, setContractBid] = useState('inactive')
+  
 
   return (
     <Card style={{ width: '50rem' }}>
