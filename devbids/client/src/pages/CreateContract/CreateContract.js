@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { enableExperimentalFragmentVariables, useMutation } from "@apollo/client";
 
 import { ADD_CONTRACT, ADD_RESPONSE } from "../../utils/mutations";
-import { QUERY_USER } from "../../utils/queries";
+import { QUERY_USER, QUERY_CONTRACTS } from "../../utils/queries";
 import './CreateContract.css'
 
 const CreateContract = () =>  {
@@ -14,10 +14,10 @@ const CreateContract = () =>  {
   const [newResponse, { error }] = useMutation(ADD_RESPONSE, {
     update(cache, {data: { newResponse } }) {
       try { 
-        const { responses } = cache.readQuery({ query: QUERY_RESPONSES });
+        const { responses } = cache.readQuery({ query: QUERY_CONTRACTS });
 
         cache.writeQuery({
-          query: QUERY_RESPONSES,
+          query: QUERY_CONTRACTS,
           data: { responses: [newResponse, ...responses] },
         });
       } catch(err) {
