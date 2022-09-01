@@ -39,8 +39,8 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     // get contracts by category.... NOT WORKING UNABLE TO GET CATEGORY ON CONTRACT
-    category: async (parent, { categoryId }) => {
-      const contracts = await Contract.find({ _id: categoryId });
+    category: async (parent, { category }) => {
+      const contracts = await Contract.find({ category });
 
       return contracts;
     },
@@ -73,13 +73,13 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation... WORKING, unable to get category name to generate
-    addContract: async (parent, { username, title, description, price, contractDate }, context) => {
+    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
       if (context.user) {
         const contract = await Contract.create({
           username,
           title,
           description,
-          // category: categoryName,
+          category,
           price,
           contractDate,
           username: context.user.username,
