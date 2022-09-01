@@ -1,53 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Col, Button } from "react-bootstrap";
-import { useMutation } from '@apollo/client'; 
+import React from 'react';
 import './SearchBar.css'
 
-const SearchBar = () => {
+export default class SearchBar extends React.Component {   
+    constructor (props) {
+        super (props);
+        this.state = {
+            suggestions: [], 
+            text: ''
+        };
+            
+    }
 
-    // const [userSearch, setUserSearch] = useState([]);
-    // const [searchInput, setSearchInput] = useState('');
+    onTextChange = (e) => {
+        const { items } = this.props;
+        const value = e.target.value;
+        let suggestions = [];
+        if (value.length > 0){
+            const regex = new RegExp(`^${value}`, 'i');
+            suggestions = items.sort().filter(v => regex.test(v));
+        }
+        this.setState(() => ({ suggestions, text: value }));
+    }
 
-    // const [login, { error }] = useMutation([])
-    // const handleFormSubmit = async (event) => {
-    //     event.preventDefault();
+    renderSuggestions () {
+        const { suggestions } = this.state;
+        if (suggestions.length === 0) {
+            return null;
+        }
+        return (
+            <ul>
+                {suggestions.map((item) => <li onClick={() => this.suggestionSelected(item)}>{item}</li>)}
+            </ul>
+        )
+    }
 
-    //     try {
-    //         const url  = `localhost`
-    //         const query = `${url}${searchInput}`
-
-    //         const response = await fetch(query)
-
-
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // }
-
-return (
-    <>
-    <Form onSubmit={{/*handleFormSubmit*/}}>
-        <Form.Row>
-            <Col xs={12} md={8}>
-                <Form.Control
-                    name = 'userSearch'
-                    className= 'searchBar'
-                    // value = {userSearch}
-                    // onChange = {(e) => setUserSearch(e.target.value)}
-                    type = 'text'
-                    size = 'lg'
-                    placeholder = 'Example: React'
-                    />
-            </Col>
-            <Col xs={12} md={4}>
-                <Button type='submit' size='lg'>
-                    Search
-                </Button>
-            </Col>
-        </Form.Row>
-    </Form>
-    </>
-);
-};
-
-export default SearchBar;
+    suggestionSelected (value) {
+        this.setState(() => ({
+            text: value,
+            suggestions: [],
+        }));
+    };
+    render() {
+        const { text } = this.state;
+        return (
+            <div className = "SearchBar">
+                <input value={text} onChange={this.onTextChange} type = "text" placeholder="Example: React"/>
+                    <ul>
+                        {this.renderSuggestions()}
+                    </ul>
+            </div>
+        )
+        
+    }
+}

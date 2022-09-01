@@ -1,17 +1,9 @@
 import React from "react";
 // import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {
-  Jumbotron,
-  Container,
-  Image,
-  Card,
-  Button,
-  Col,
-  Footer,
-  Row,
-} from "react-bootstrap";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import { HashRouter as Link } from "react-router-dom";
+import { Jumbotron, Container, Image, Button, Col, Row,} from "react-bootstrap";
+import SearchBar from "../../components/SearchBar/SearchBar"
+import allCategories from "../../data/categories"
 // import Auth from '../utils/auth';
 import "./Homepage.css";
 
@@ -20,8 +12,17 @@ export default function Homepage() {
     <>
       <div className="homepage-banner"></div>
       <Jumbotron className="jumbotron text-light bg-secondary">
-        <h1>Let's get to work.</h1>
-        <SearchBar></SearchBar>
+        <h1>Let's Get to Work.</h1>
+        <Row>
+        <Col xs={12} md={8}>
+        <SearchBar items={allCategories} placeholder = "Example: React"/>
+        </Col>
+        <Col xs={12} md={4}>
+          <Button type='submit' size='lg'>
+              Search
+          </Button>
+        </Col>
+        </Row>
         <br></br>
         <Col xs={12} md={4}>
           <Link to="/createContract">
