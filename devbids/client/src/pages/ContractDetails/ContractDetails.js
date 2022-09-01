@@ -1,21 +1,43 @@
 import "./ContractDetails.css";
 import React from "react";
-import { Card, Col } from "react-bootstrap";
+import { Row, Card, Col, Image } from "react-bootstrap";
+import ContractCard from "../../components/CntractCard/ContractCard";
 
-export default function ContractDetails() {
-  return (
-  <>
-    <Card className = "contractDetails">
-      <Row>
-        <Col.Card className = "workDetails" xs={12} md={9}>
-        </Col.Card>
-        <Col className="profilePic" xs={6} md={3}>
-          <Image src="" roundedCircle/>
-        </Col>
-        <Col className="socials" xs={6} md ={3}></Col>
-      </Row>
-      
-    </Card>
-  </>
-  );
+import Auth from "../../utils/auth";
+import { QUERY_USER, QUERY_CONTRACTS, } from "../../utils/queries";
+
+export default function ContractDetails(props) {
+  constructor (props) {
+    super (props);
+    this.state = {
+      responses: []
+    }
+  }
+  const { contractId } = useParams();
+
+  const { loading, data } = useQuery(QUERY_CONTRACTS, {
+    variables: {contractId: contractId}
+  });
+
+  function renderResponses () {
+    const { responses } = this.state;
+      if ( responses.length === 0 ) {
+        return null;
+      }
+      return (
+        <div>
+          {responses.map((e) => <ResponseCard />)}
+        </div>
+      )
+  };
+
+  
+    return (
+      <div className = "contractDetails">
+        <ContractCard items={propshere} />
+          <div>
+              {renderResponses()}
+          </div>
+      </div>
+    )
 }
