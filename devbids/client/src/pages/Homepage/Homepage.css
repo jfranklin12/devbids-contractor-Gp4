@@ -1,6 +1,26 @@
-.aboutUs p {
-    font-size: larger;
 
+h1 {
+    font-weight: 900;
+    text-align: center;
+}
+ul {
+    padding: 2rem;
+}
+li {
+    background-color: #e4ebe4;
+    margin: .4rem 0;
+    padding: .5rem;
+    list-style: none;
+}
+.aboutUs p {
+  font-size: larger;
+}
+.homepage-banner {
+    /* Image from https://unsplash.com/s/photos/collaboration */
+  background: url('../../../public/img/homepage-banner.jpg') no-repeat center
+    center/cover;
+  height: 50vh;
+  width: 100vw;
 }
 
 li {

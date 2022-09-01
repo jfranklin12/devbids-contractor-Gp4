@@ -1,13 +1,13 @@
 /* I'm waiting to add more background styling until we know the color scheme */
 
-
-
-
-#description {
-    height: 100%;
+.create-new-contract-banner {
+    /* Image from https://unsplash.com/photos/n95VMLxqM2I */
+  background: url('../../../public/img/create-contract-banner.jpg') no-repeat center
+    center/cover;
+  height: 50vh;
+  width: 100vw;
 }
 
-
-
-
-
+#description {
+  height: 100%;
+}

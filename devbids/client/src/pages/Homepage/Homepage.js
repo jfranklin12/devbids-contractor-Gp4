@@ -10,6 +10,7 @@ import "./Homepage.css";
 export default function Homepage() {
   return (
     <>
+      <div className="homepage-banner"></div>
       <Jumbotron className="jumbotron text-light bg-secondary">
         <h1>Let's Get to Work.</h1>
         <Row>
@@ -36,8 +37,8 @@ export default function Homepage() {
                 <button>Search for Contracts</button>
                 </Link> */}
       </Jumbotron>
-      <Container className = "textBody">
-        <Row className="aboutUs">
+      <Container>
+        <Row className="aboutUs bg-light p-3">
           <h1>About Us</h1>
 
           <p>
@@ -55,7 +56,7 @@ export default function Homepage() {
           </p>
         </Row>
 
-        <Row>
+        <Row className="bg-light p-3">
           <Col>
             <Row>
               <h1>Use DevBids...</h1>
