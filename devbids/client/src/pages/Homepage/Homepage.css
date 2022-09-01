@@ -3,6 +3,9 @@ h1 {
     font-weight: 900;
     text-align: center;
 }
+ul {
+    padding: 2rem;
+}
 li {
     background-color: #e4ebe4;
     margin: .4rem 0;
