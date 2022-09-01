@@ -1,7 +1,7 @@
 import './Profile.css'
 import React from 'react'
-import ContractCard from '../../components/ContractCard/ContractCard'
-import ResponseCard from '../../components/ResponseCard/ResponseCard'
+// import ContractCard from '../../components/ContractCard/ContractCard'
+// import ResponseCard from '../../components/ResponseCard/ResponseCard'
 
 export default function Profile() {
   return (
