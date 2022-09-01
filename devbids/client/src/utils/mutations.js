@@ -23,7 +23,7 @@ mutation Login($email: String!, $password: String!) {
 `;
 // not sure if this works
 export const ADD_CONTRACT = gql`
-mutation Mutation(, $contractData: ContractInput) {
+mutation Mutation($contractData: ContractInput) {
     addContract(contractData: $contractData) {
       user {
         userName
