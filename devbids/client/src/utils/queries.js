@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-query Query {
+query User {
     user {
       _id
       firstName
@@ -13,7 +13,7 @@ query Query {
 `
 
 export const QUERY_CONTRACTS = gql`
-query Query {
+query Contracts {
     contracts {
       _id
       user {
