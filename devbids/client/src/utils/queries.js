@@ -12,24 +12,15 @@ query User {
 `
 
 export const QUERY_CONTRACTS = gql`
-query Contracts {
-    contracts {
-      _id
+query Contracts($username: String!) {
+    contracts(username: $username) {
       user {
         username
       }
       title
       description
-      category {
-        name
-      }
       price
       contractDate
-      responses {
-        responseAuthor {
-          username
-        }
-      }
     }
   }
 `

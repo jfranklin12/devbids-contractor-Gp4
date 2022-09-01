@@ -34,7 +34,6 @@ export const LOGIN = gql`
   }
 `;
 
-// not sure if this works
 export const ADD_CONTRACT = gql`
 mutation AddContract($title: String!, $description: String!, $price: Int, $contractDate: String, $username: String!) {
   addContract(title: $title, description: $description, price: $price, contractDate: $contractDate, username: $username) {
