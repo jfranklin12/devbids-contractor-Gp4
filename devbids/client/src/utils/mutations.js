@@ -40,9 +40,45 @@ mutation Mutation($contractData: ContractInput) {
     }
 }`
 // add response
-
+export const ADD_RESPONSE = gql`
+mutation AddResponse($responseData: ResponseInput) {
+  addResponse(responseData: $responseData) {
+    _id
+    user {
+      username
+    }
+    title
+    description
+    category {
+      name
+    }
+    price
+    contractDate
+    responses {
+      _id
+    }
+  }
+}`
 // delete contract
-
+export const DELETE_CONTRACT = gql`
+mutation DeleteContract($contractId: ID!) {
+  deleteContract(contractId: $contractId) {
+    _id
+    user {
+      username
+    }
+    title
+    description
+    category {
+      name
+    }
+    price
+    contractDate
+    responses {
+      _id
+    }
+  }
+}`
 // delete response
 
 
