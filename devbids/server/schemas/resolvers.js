@@ -23,9 +23,9 @@ const resolvers = {
       throw new AuthenticationError("Log in unsuccessful!");
     },
     // contracts all contracts
-    contracts: async () => {
-      // can sort by adding .sort({ createdAt: -1 }) and add to typeDefs
-      return await Contract.find();
+    contracts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Contract.find(params);
     },
     // user contracts
     userContracts: async (parent, args, context) => {
@@ -79,11 +79,16 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
-    addContract: async (parent, { contractData }, context) => {
+    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
       if (context.user) {
         const contract = await Contract.create({
-          contractData,
-          contractAuthor: context.user.username,
+          username,
+          title,
+          description,
+          category,
+          price,
+          contractDate,
+          username: context.user.username,
         });
 
         await User.findOneAndUpdate(
