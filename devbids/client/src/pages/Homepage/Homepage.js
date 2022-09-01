@@ -11,7 +11,9 @@ export default function Homepage() {
   return (
     <>
       <div className="homepage-banner"></div>
-      <Jumbotron className="jumbotron text-light bg-secondary">
+      
+
+      <Jumbotron className="jumbotron text-light jumbotron-background">
         <h1>Let's Get to Work.</h1>
         <Row className="centerRow">
         <Col xs={12} md={8}>
@@ -47,6 +49,12 @@ export default function Homepage() {
             from professionals just like you.
           </p>
         </Row>
+        <Row>
+            <Image className="image"
+              src="./img/woman-at-computer.jpg"
+              rounded
+            />
+            </Row>
 
         <Row className="useDevbids bg-light p-3">
           <Col>
@@ -77,13 +85,14 @@ export default function Homepage() {
                 </li>
               </ul>
             </Row>
+            
           </Col>
-          <Col>
-            <Image
-              src="https://st3.depositphotos.com/34353014/36414/i/600/depositphotos_364146560-stock-photo-young-man-having-zoom-video.jpg"
+          {/* <Col>
+            <Image className="image"
+              src="./img/woman-at-computer.jpg"
               rounded
             />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </>
