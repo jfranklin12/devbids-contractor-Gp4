@@ -1,0 +1,6 @@
+.contact-us-banner {
+    /* image from https://unsplash.com/photos/SpVHcbuKi6E */
+  background: url('../../../public/img/contact-us-banner.jpg') no-repeat center center/cover;
+  height: 50vh;
+  width: 100vw;
+}

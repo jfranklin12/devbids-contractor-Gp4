@@ -1,3 +1,9 @@
 .contracts-title {
   font-size: 60px;
 }
+.contacts-banner {
+  /* Image from https://unsplash.com/photos/qAjJk-un3BI */
+  background: url('../../../public/img/contracts-banner.jpg') no-repeat center center/cover;
+  height: 50vh;
+  width: 100vw;
+}
