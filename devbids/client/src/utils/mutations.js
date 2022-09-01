@@ -40,3 +40,15 @@ mutation Mutation($contractData: ContractInput) {
     }
   }`
 
+//   update user
+export const UPDATE_USER = gql`
+mutation UpdateUser($email: String, $password: String) {
+    updateUser(email: $email, password: $password) {
+      _id
+      userName
+      email
+      joinDate
+    }
+  }`
+
+
