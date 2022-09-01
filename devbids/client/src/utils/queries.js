@@ -9,7 +9,8 @@ query Query {
       username
       email
     }
-  }`
+  }
+`
 
 export const QUERY_CONTRACTS = gql`
 query Query {
@@ -31,10 +32,11 @@ query Query {
         }
       }
     }
-  }`
+  }
+`
 
 export const QUERY_USER_CONTRACTS = gql `
-query UserContracts {
+    query UserContracts {
     userContracts {
       _id
       user {
@@ -59,4 +61,23 @@ query UserContracts {
         responseDate
       }
     }
-  }`
+  }
+`
+
+export const QUERY_CATEGORY_CONTRACTS = gql`
+  query Category($categoryId: ID!) {
+    category(categoryId: $categoryId) {
+      _id
+      user {
+        username
+      }
+      title
+      description
+      category {
+        name
+      }
+      price
+      contractDate
+    }
+  }
+`
