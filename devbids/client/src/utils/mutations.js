@@ -80,7 +80,28 @@ mutation DeleteContract($contractId: ID!) {
   }
 }`
 // delete response
-
+export const DELETE_RESPONSE = gql`
+mutation DeleteResponse($contractId: ID!, $responseId: ID!) {
+  deleteResponse(contractId: $contractId, responseId: $responseId) {
+    _id
+    user {
+      username
+    }
+    title
+    description
+    category {
+      name
+    }
+    price
+    contractDate
+  }
+  responses {
+    _id
+    responseAuthor {
+      username
+    }
+  }
+}`
 
 //   update user
 export const UPDATE_USER = gql`
