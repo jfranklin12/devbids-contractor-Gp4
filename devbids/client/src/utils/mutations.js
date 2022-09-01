@@ -24,7 +24,7 @@ export const LOGIN = gql`
 
 // not sure if this works
 export const ADD_CONTRACT = gql`
-mutation Mutation($contractData: ContractInput) {
+mutation addContract($contractData: ContractInput) {
     addContract(contractData: $contractData) {
       user {
         userName
@@ -54,9 +54,6 @@ mutation AddResponse($responseData: ResponseInput) {
     }
     price
     contractDate
-    responses {
-      _id
-    }
   }
 }`
 // delete contract
