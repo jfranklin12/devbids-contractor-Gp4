@@ -7,7 +7,10 @@ import Auth from "../../utils/auth";
 
 export function LoginForm() {
   // make state to remember what they type in forms
-  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+  const [userFormData, setUserFormData] = useState({
+    email: "bhad778@gmail.com",
+    password: "Ululavit#8",
+  });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
