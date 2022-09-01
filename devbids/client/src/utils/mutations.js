@@ -64,39 +64,28 @@ export const DELETE_CONTRACT = gql`
     }
   }
 `;
-// delete response... UNKNOWN
+// delete response... working
 export const DELETE_RESPONSE = gql`
-  mutation DeleteResponse($contractId: ID!, $responseId: ID!) {
-    deleteResponse(contractId: $contractId, responseId: $responseId) {
-      _id
-      user {
-        username
-      }
-      title
-      description
-      category {
-        name
-      }
-      price
-      contractDate
-    }
+mutation DeleteResponse($contractId: ID!, $responseId: ID!) {
+  deleteResponse(contractId: $contractId, responseId: $responseId) {
     responses {
-      _id
-      responseAuthor {
-        username
-      }
+      responseAuthor
+      responseDescription
+      price
+      responseDate
     }
   }
+}
 `;
 
 //   update user
-export const UPDATE_USER = gql`
-  mutation UpdateUser($email: String, $password: String) {
-    updateUser(email: $email, password: $password) {
-      _id
-      userName
-      email
-      joinDate
-    }
-  }
-`;
+// export const UPDATE_USER = gql`
+//   mutation UpdateUser($email: String, $password: String) {
+//     updateUser(email: $email, password: $password) {
+//       _id
+//       userName
+//       email
+//       joinDate
+//     }
+//   }
+// `;
