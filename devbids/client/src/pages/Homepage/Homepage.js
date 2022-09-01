@@ -29,7 +29,7 @@ export default function Homepage() {
         </Col>
         </Row>
       </Jumbotron>
-      <Container className='textBody'>
+      <Container>
         <Row className="aboutUs bg-light p-3">
           <h1>About Us</h1>
 
