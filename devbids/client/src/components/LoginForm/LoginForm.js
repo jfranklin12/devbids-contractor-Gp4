@@ -43,7 +43,7 @@ export function LoginForm() {
     try {
       const res = await login({ variables: { ...userFormData } });
 
-      Auth.login(res.data.login.token);
+      Auth.login(res.data.login.token, res.data.login.user);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
