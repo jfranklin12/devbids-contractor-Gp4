@@ -34,19 +34,14 @@ query UserContracts {
     }
   }
 `
-// NOT WORKING YET!
+// query by category Working
 export const QUERY_CATEGORY_CONTRACTS = gql`
-  query Category($categoryId: ID!) {
-    category(categoryId: $categoryId) {
-      _id
-      user {
-        username
-      }
-      title
+  query Category($category: String) {
+    category(category: $category) {
+      username
       description
-      category {
-        name
-      }
+    title
+      category
       price
       contractDate
     }
