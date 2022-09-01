@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// query for user information working
 export const QUERY_USER = gql`
 query User {
     user {
@@ -10,13 +10,11 @@ query User {
     }
   }
 `
-
+// query for contracts working
 export const QUERY_CONTRACTS = gql`
-query Contracts($username: String!) {
-    contracts(username: $username) {
-      user {
-        username
-      }
+query Contracts {
+    contracts {
+      username
       title
       description
       price

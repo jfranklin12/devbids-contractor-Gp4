@@ -8,7 +8,7 @@ const typeDefs = gql`
   
   type Contract {
     _id: ID
-    user: User
+    username: String!
     title: String!
     description: String!
     category: [Category]
@@ -61,7 +61,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    contracts(username: String!): [Contract]
+    contracts: [Contract]
     userContracts: [Contract]
     category(categoryId: ID!): [Contract]
   }
