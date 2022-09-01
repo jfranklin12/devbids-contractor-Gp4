@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server-express');
 
+// category: [Category]!
 const typeDefs = gql`
   type Category {
     _id: ID
@@ -8,10 +9,10 @@ const typeDefs = gql`
   
   type Contract {
     _id: ID
-    user: User
+    username: String!
     title: String!
     description: String!
-    category: [Category]
+    categoryName: String
     price: Int
     contractDate: String
     responses: [Response]
@@ -19,10 +20,8 @@ const typeDefs = gql`
 
   type Response {
     _id: ID
-    responseAuthor: User!
-    description: String!
-    contractId: Contract!
-    category: [Category]!
+    responseAuthor: String!
+    responseDescription: String!
     price: Int
     responseDate: String
   }
@@ -61,7 +60,7 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    contracts(username: String!): [Contract]
+    contracts: [Contract]
     userContracts: [Contract]
     category(categoryId: ID!): [Contract]
   }
@@ -69,8 +68,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String! password: String!, firstName: String!, lastName: String!): Auth
-    addContract(username: String!, title: String!, description: String!, category: [String], price: Int, contractDate: String): Contract
-    addResponse(contractId: ID!, description: String!,responseAuthor: String!, category: String!, price: Int, responseDate: String): Contract
+    addContract(username: String!, title: String!, description: String!, categoryName: String, price: Int, contractDate: String): Contract
+    addResponse(contractId: ID!, responseDescription: String!, price: Int, responseDate: String): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     deleteContract(contractId: ID!): Contract
     deleteResponse(contractId: ID!, responseId: ID!): Contract
