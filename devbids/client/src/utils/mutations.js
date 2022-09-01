@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-
+// mutation for adding user working
 export const ADD_USER = gql`
   mutation AddUser(
     $username: String!
@@ -22,7 +22,7 @@ export const ADD_USER = gql`
     }
   }
 `;
-
+// mutation for login working
 export const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -33,10 +33,11 @@ export const LOGIN = gql`
     }
   }
 `;
-
+// mutation for adding contract working
 export const ADD_CONTRACT = gql`
-mutation AddContract($title: String!, $description: String!, $price: Int, $contractDate: String, $username: String!) {
-  addContract(title: $title, description: $description, price: $price, contractDate: $contractDate, username: $username) {
+mutation AddContract($username: String!, $title: String!, $description: String!, $price: Int, $contractDate: String) {
+  addContract(username: $username, title: $title, description: $description, price: $price, contractDate: $contractDate) {
+    username
     title
     description
     price
