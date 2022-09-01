@@ -19,7 +19,7 @@ export default function Homepage() {
         </Col>
         <Col xs={12} md={2}>
           <Button type='submit' size='lg'>
-              Search
+              Search for Contracts
           </Button>
         </Col>
         <Col xs={12} md={2}>
