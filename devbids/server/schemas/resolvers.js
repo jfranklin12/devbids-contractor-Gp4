@@ -14,8 +14,9 @@ const resolvers = {
     // get user info... WORKING
     user: async (parent, args, context) => {
       if (context.user) {
-        
-        const user = await User.findById(context.user._id).select('-__v -password');
+        const user = await User.findById(context.user._id).select(
+          "-__v -password"
+        );
 
         return user;
       }
@@ -49,8 +50,9 @@ const resolvers = {
   Mutation: {
     // login mutation... WORKING
     login: async (parent, { email, password }) => {
+      console.log("hello");
       const user = await User.findOne({ email });
-
+      console.log(user);
       if (!user) {
         throw new AuthenticationError("Incorrect email or password");
       }
@@ -58,7 +60,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect email password");
+        throw new AuthenticationError("Incorrect password or email");
       }
 
       const token = signToken(user);
@@ -73,7 +75,11 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation... WORKING, unable to get category name to generate
-    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
+    addContract: async (
+      parent,
+      { username, title, description, category, price, contractDate },
+      context
+    ) => {
       if (context.user) {
         const contract = await Contract.create({
           username,
@@ -96,22 +102,31 @@ const resolvers = {
     },
 
     // addResponse mutation... WORKING
-    addResponse: async (parent, { contractId, responseDescription, price, responseDate }, context) => {
+    addResponse: async (
+      parent,
+      { contractId, responseDescription, price, responseDate },
+      context
+    ) => {
       if (context.user) {
-      return Contract.findOneAndUpdate(
-        { _id: contractId },
-        {
-          $addToSet: {
-            responses: { responseDescription, price, responseDate, responseAuthor: context.user.username },
+        return Contract.findOneAndUpdate(
+          { _id: contractId },
+          {
+            $addToSet: {
+              responses: {
+                responseDescription,
+                price,
+                responseDate,
+                responseAuthor: context.user.username,
+              },
+            },
           },
-        },
-        {
-          new: true,
-        }
-      );
-    }
-    throw new AuthenticationError('You need to be logged in!');
-  },
+          {
+            new: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
 
     // update user mutation... UNKNOWN
     updateUser: async (parent, args, context) => {
