@@ -1,6 +1,6 @@
 const connection = require("../config/connection");
 
-const { User } = require("../models");
+const { User } = require("../models"); //need to add in the other models here eventually that we want to test
 
 const userData = require("../seeds/user.json");
 

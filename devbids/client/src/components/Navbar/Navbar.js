@@ -72,6 +72,7 @@ import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
 import "./Navbar.css";
+import Auth from "../../utils/auth";
 
 function NavBar() {
   const [show, setShow] = useState(false);
@@ -97,13 +98,26 @@ function NavBar() {
             <Link to="/contracts" className="nav-text">
               Contracts
             </Link>
-            <Link to="/profile" className="nav-text">
-              Profile
-            </Link>
             <Link to="/contactUs" className="nav-text">
               Contact Us
             </Link>
-            <Button onClick={handleShow}>Login or Sign Up</Button>
+
+            {Auth.loggedIn() ? (
+              <>
+                <Nav.Link as={Link} to="/profile" className="nav-text">
+                  Profile
+                </Nav.Link>
+                <Nav.Link onClick={Auth.logout} className="nav-text">
+                  Logout
+                </Nav.Link>
+              </>
+            ) : (
+              <Button onClick={handleShow}>Login or Sign Up</Button>
+            )}
+
+            {/* <Link to="/profile" className="nav-text">
+              Profile
+            </Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

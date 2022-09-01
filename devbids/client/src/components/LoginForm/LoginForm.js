@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../../utils/mutations";
+import { LOGIN } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
 export function LoginForm() {
   // make state to remember what they type in forms
-  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+  const [userFormData, setUserFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   // write function that is called when you press login
-  const [login, { error }] = useMutation(ADD_USER);
+  const [login, { error }] = useMutation(LOGIN);
 
   useEffect(() => {
     if (error) {
@@ -39,7 +43,7 @@ export function LoginForm() {
     try {
       const res = await login({ variables: { ...userFormData } });
 
-      Auth.login(res.data.login.token);
+      Auth.login(res.data.login.token, res.data.login.user);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -52,7 +56,7 @@ export function LoginForm() {
   };
 
   return (
-    <Form>
+    <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
       <div>Welcome Back! Log in below!</div>
       <Alert
         dismissible
@@ -79,10 +83,19 @@ export function LoginForm() {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control
+          type="password"
+          placeholder="Your password"
+          name="password"
+          onChange={handleInputChange}
+          value={userFormData.password}
+          required
+        />
+        <Form.Control.Feedback type="invalid">
+          Password is required!
+        </Form.Control.Feedback>
       </Form.Group>
       <Button
-        variant="success"
         disabled={!(userFormData.email && userFormData.password)}
         type="submit"
       >
