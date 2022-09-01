@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client';
-
+// query for user information working
 export const QUERY_USER = gql`
 query User {
     user {
@@ -10,13 +10,11 @@ query User {
     }
   }
 `
-
+// query for contracts working
 export const QUERY_CONTRACTS = gql`
-query Contracts($username: String!) {
-    contracts(username: $username) {
-      user {
-        username
-      }
+query Contracts {
+    contracts {
+      username
       title
       description
       price
@@ -24,48 +22,26 @@ query Contracts($username: String!) {
     }
   }
 `
-
-export const QUERY_USER_CONTRACTS = gql `
-    query UserContracts {
+// query for contracts by user to render to profile page
+export const QUERY_USER_CONTRACTS = gql`
+query UserContracts {
     userContracts {
-      _id
-      user {
-        username
-      }
+      username
       title
       description
-      category {
-        name
-      }
       price
       contractDate
-      responses {
-        responseAuthor {
-          username
-        }
-        description
-        category {
-          name
-        }
-        price
-        responseDate
-      }
     }
   }
 `
-
+// query by category Working
 export const QUERY_CATEGORY_CONTRACTS = gql`
-  query Category($categoryId: ID!) {
-    category(categoryId: $categoryId) {
-      _id
-      user {
-        username
-      }
-      title
+  query Category($category: String) {
+    category(category: $category) {
+      username
       description
-      category {
-        name
-      }
+    title
+      category
       price
       contractDate
     }

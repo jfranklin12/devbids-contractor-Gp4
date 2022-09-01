@@ -70,7 +70,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import LoginSignupModal from "../LoginSignUpModal/LoginSignupModal";
+import LoginSignupModal from "../LoginSignUpModal/LoginSignUpModal";
 import "./Navbar.css";
 import Auth from "../../utils/auth";
 

@@ -1,20 +1,28 @@
 [
     {
+        "firstName": "Vince",
+        "lastName": "Yang",
         "username": "vyang",
         "email": "vyang@wahoo.com",
         "password": "Vince1234"
     },
     {
+        "firstName": "Mary",
+        "lastName": "Taylor",
         "username": "mmtaylor",
         "email": "mmtaylor@wahoo.com",
         "password": "MaryMargaret1234"
     },
     {
+        "firstName": "Hunter",
+        "lastName": "Steffner",
         "username": "hsteffner",
         "email": "hsteffner@wahoo.com",
         "password": "Hunter1234"
     },
     {
+        "firstName": "Jules",
+        "lastName": "Franklin",
         "username": "jfranklin",
         "email": "jfranklin@wahoo.com",
         "password": "Jules1234"

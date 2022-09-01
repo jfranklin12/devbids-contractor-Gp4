@@ -1,8 +1,9 @@
 const connection = require("../config/connection");
 
-const { User } = require("../models"); //need to add in the other models here eventually that we want to test
+const { User, Contract } = require("../models"); //need to add in the other models here eventually that we want to test
 
 const userData = require("../seeds/user.json");
+const contractData = require('./contract.json')
 
 connection.on("error", (err) => err);
 
@@ -11,5 +12,11 @@ connection.once("open", async () => {
 
   await User.deleteMany({});
 
-  await User.collection.insertMany(userData);
+  await User.create(userData);
+
+  await Contract.deleteMany({})
+  await Contract.create(contractData)
+
+  console.log('All done')
+  process.exit(0)
 });
