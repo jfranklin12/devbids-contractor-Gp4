@@ -21,3 +21,22 @@ export const LOGIN = gql`
     }
   }
 `;
+
+// not sure if this works
+export const ADD_CONTRACT = gql`
+mutation Mutation(, $contractData: ContractInput) {
+    addContract(contractData: $contractData) {
+      user {
+        userName
+      }
+      title
+      description
+      category {
+        name
+      }
+      price
+      contractDate
+      _id
+    }
+  }`
+

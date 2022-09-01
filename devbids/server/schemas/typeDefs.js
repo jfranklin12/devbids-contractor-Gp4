@@ -8,10 +8,20 @@ const typeDefs = gql`
   
   type Contract {
     _id: ID
-    username: User
+    user: User
     title: String!
     description: String!
     category: [Category]
+    price: Int
+    contractDate: String
+  }
+
+  input ContractInput {
+    _id: ID
+    contractAuthor: String
+    contractTitle: String
+    contractDescription: String
+    category: String
     price: Int
     contractDate: String
   }
@@ -66,7 +76,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String! password: String!): Auth
-    addContract(contract: ID!): Contract
+    addContract(contractData: ContractInput): Contract
     addResponse(contractId: ID!, description: String!): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     deleteResponse(contractId: ID!, responseId: ID!): Contract
