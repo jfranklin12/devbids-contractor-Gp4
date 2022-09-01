@@ -1,3 +1,41 @@
-.searchBar::placeholder {
-    font-style: italic;
+.SearchBar {
+    width: 100%;
+    border: 1px solid rgb(72, 72, 72);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .4), 0 1px 1px 1px rgba(0, 0, 0, .45);
+    font-size: larger;
+    color: black;
+    border-radius: 5px;
+}
+
+.SearchBar input {
+    width: 100%;
+    border: none;
+    font-size: larger;
+    color: black;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 5px;
+    text-indent: 10px;
+}
+
+.SearchBar ul {
+    position: absolute;
+    width: 98%;
+    border: 1px solid grey;
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.SearchBar li {
+    padding: 10px 5px;
+    background-color: white;
+    text-indent: 15px;
+}
+
+.SearchBar li:hover {
+    background-color: rgb(214, 214, 214);
+    cursor: pointer;
+    text-decoration: underline;
 }

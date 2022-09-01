@@ -3,14 +3,16 @@ h1 {
     font-weight: 900;
     text-align: center;
 }
-ul {
+.useDevbids ul {
     padding: 2rem;
 }
-li {
+
+.useDevbids li {
     background-color: #e4ebe4;
     margin: .4rem 0;
     padding: .5rem;
     list-style: none;
+    font-size: larger;
 }
 .image {
   width: 100%;
@@ -27,4 +29,17 @@ li {
     center/cover;
   height: 50vh;
   width: 100vw;
+}
+
+.textBody {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    padding-left: 200px;
+    margin-bottom: 25px;
+}
+.centerRow {
+    justify-content: center;
 }
