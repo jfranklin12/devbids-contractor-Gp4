@@ -79,11 +79,16 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
-    addContract: async (parent, { contractData }, context) => {
+    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
       if (context.user) {
         const contract = await Contract.create({
-          contractData,
-          contractAuthor: context.user.username,
+          username,
+          title,
+          description,
+          category,
+          price,
+          contractDate,
+          username: context.user.username,
         });
 
         await User.findOneAndUpdate(
