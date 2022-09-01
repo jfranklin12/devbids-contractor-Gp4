@@ -1,17 +1,9 @@
 import React from "react";
 // import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {
-  Jumbotron,
-  Container,
-  Image,
-  Card,
-  Button,
-  Col,
-  Footer,
-  Row,
-} from "react-bootstrap";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import { HashRouter as Link } from "react-router-dom";
+import { Jumbotron, Container, Image, Button, Col, Row,} from "react-bootstrap";
+import SearchBar from "../../components/SearchBar/SearchBar"
+import allCategories from "../../data/categories"
 // import Auth from '../utils/auth';
 import "./Homepage.css";
 
@@ -20,21 +12,22 @@ export default function Homepage() {
     <>
       <div className="homepage-banner"></div>
       <Jumbotron className="jumbotron text-light bg-secondary">
-        <h1>Let's get to work.</h1>
-        <SearchBar></SearchBar>
-        <br></br>
-        <Col xs={12} md={4}>
+        <h1>Let's Get to Work.</h1>
+        <Row className="centerRow">
+        <Col xs={12} md={8}>
+        <SearchBar items={allCategories} placeholder = "Example: React"/>
+        </Col>
+        <Col xs={12} md={2}>
+          <Button type='submit' size='lg'>
+              Search
+          </Button>
+        </Col>
+        <Col xs={12} md={2}>
           <Link to="/createContract">
-            <Button>Create a Contract</Button>
-          </Link>
-          <Link to="#searchContract">
-            <Button>Search for Contracts</Button>
+            <Button size='lg'>Create a Contract</Button>
           </Link>
         </Col>
-
-        {/* <Link to="/searchContract">
-                <button>Search for Contracts</button>
-                </Link> */}
+        </Row>
       </Jumbotron>
       <Container>
         <Row className="aboutUs bg-light p-3">
@@ -55,7 +48,7 @@ export default function Homepage() {
           </p>
         </Row>
 
-        <Row className="bg-light p-3">
+        <Row className="useDevbids bg-light p-3">
           <Col>
             <Row>
               <h1>Use DevBids...</h1>
