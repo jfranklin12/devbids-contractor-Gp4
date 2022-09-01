@@ -22,36 +22,19 @@ query Contracts {
     }
   }
 `
-
-export const QUERY_USER_CONTRACTS = gql `
-    query UserContracts {
+// query for contracts by user to render to profile page
+export const QUERY_USER_CONTRACTS = gql`
+query UserContracts {
     userContracts {
-      _id
-      user {
-        username
-      }
+      username
       title
       description
-      category {
-        name
-      }
       price
       contractDate
-      responses {
-        responseAuthor {
-          username
-        }
-        description
-        category {
-          name
-        }
-        price
-        responseDate
-      }
     }
   }
 `
-
+// NOT WORKING YET!
 export const QUERY_CATEGORY_CONTRACTS = gql`
   query Category($categoryId: ID!) {
     category(categoryId: $categoryId) {

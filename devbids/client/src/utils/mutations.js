@@ -45,23 +45,23 @@ mutation AddContract($username: String!, $title: String!, $description: String!,
   }
 }
 `;
-// add response
+// add response to contract working!
 export const ADD_RESPONSE = gql`
-  mutation AddResponse($responseData: ResponseInput) {
-    addResponse(responseData: $responseData) {
-      _id
-      user {
-        username
-      }
-      title
-      description
-      category {
-        name
-      }
+mutation Mutation($contractId: ID!, $responseDescription: String!, $price: Int) {
+  addResponse(contractId: $contractId, responseDescription: $responseDescription, price: $price) {
+    username
+    title
+    description
+    price
+    contractDate
+    responses {
+      responseAuthor
+      responseDescription
       price
-      contractDate
+      responseDate
     }
   }
+}
 `;
 // delete contract
 export const DELETE_CONTRACT = gql`

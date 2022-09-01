@@ -17,8 +17,30 @@ const contractSchema = new Schema(
       type: String,
       required: true
     },
-    category: [categorySchema],
-    response: [responseSchema],
+    category: {
+      type: String,
+      ref: 'Category',
+    },
+    responses: [
+      {
+      responseAuthor: {
+        type: String,
+        required: true,
+      },
+      responseDescription: {
+        type: String,
+        required: true,
+      },
+      price: {
+      type: Number,
+      min: 0.99,
+    },
+      responseDate: {
+      type: Date,
+      default: Date.now,
+    },
+    }
+    ],
     price: {
       type: Number,
       min: 0.99
