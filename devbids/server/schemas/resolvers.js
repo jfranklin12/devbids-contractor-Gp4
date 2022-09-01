@@ -147,7 +147,7 @@ const resolvers = {
           { _id: contractId },
           {
             $pull: {
-              response: {
+              responses: {
                 _id: responseId,
                 responseAuthor: context.user.username,
               },
