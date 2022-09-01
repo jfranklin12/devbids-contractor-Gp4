@@ -29,20 +29,32 @@ export const LOGIN = gql`
       token
       user {
         _id
+        username
+        firstName
+        lastName
+        email
       }
     }
   }
 `;
 
+// not sure if this works
 export const ADD_CONTRACT = gql`
-mutation AddContract($title: String!, $description: String!, $price: Int, $contractDate: String, $username: String!) {
-  addContract(title: $title, description: $description, price: $price, contractDate: $contractDate, username: $username) {
-    title
-    description
-    price
-    contractDate
+  mutation addContract($contractData: ContractInput) {
+    addContract(contractData: $contractData) {
+      user {
+        userName
+      }
+      title
+      description
+      category {
+        name
+      }
+      price
+      contractDate
+      _id
+    }
   }
-}
 `;
 // add response
 export const ADD_RESPONSE = gql`

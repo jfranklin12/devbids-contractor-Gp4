@@ -3,16 +3,18 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
 function ProfileCard() {
+  const user = localStorage.getItem("user");
+  console.log(user);
   return (
     <Card style={{ width: "25rem" }}>
       <Card.Header className="text-center" style={{ color: "black" }}>
         Profile
       </Card.Header>
       <ListGroup variant="flush" style={{ color: "black" }}>
-        <ListGroup.Item>First Name:</ListGroup.Item>
-        <ListGroup.Item>Last Name:</ListGroup.Item>
-        <ListGroup.Item>Username:</ListGroup.Item>
-        <ListGroup.Item>Email:</ListGroup.Item>
+        <ListGroup.Item>First Name:{user.firstName}</ListGroup.Item>
+        <ListGroup.Item>Last Name:{user.lastName}</ListGroup.Item>
+        <ListGroup.Item>Username:{user.username}</ListGroup.Item>
+        <ListGroup.Item>Email:{user.email}</ListGroup.Item>
       </ListGroup>
     </Card>
   );

@@ -15,8 +15,9 @@ const resolvers = {
     user: async (parent, args, context) => {
       console.log(context.user);
       if (context.user) {
-        
-        const user = await User.findById(context.user._id).select('-__v -password');
+        const user = await User.findById(context.user._id).select(
+          "-__v -password"
+        );
 
         return user;
       }
@@ -55,8 +56,9 @@ const resolvers = {
   Mutation: {
     // login mutation
     login: async (parent, { email, password }) => {
+      console.log("hello");
       const user = await User.findOne({ email });
-
+      console.log(user);
       if (!user) {
         throw new AuthenticationError("Incorrect email or password");
       }
@@ -64,7 +66,7 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect email password");
+        throw new AuthenticationError("Incorrect password or email");
       }
 
       const token = signToken(user);
@@ -79,7 +81,11 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
-    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
+    addContract: async (
+      parent,
+      { username, title, description, category, price, contractDate },
+      context
+    ) => {
       if (context.user) {
         const contract = await Contract.create({
           username,
