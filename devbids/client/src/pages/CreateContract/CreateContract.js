@@ -1,6 +1,54 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { enableExperimentalFragmentVariables, useMutation } from "@apollo/client";
+
+import { ADD_CONTRACT, ADD_RESPONSE } from "../../utils/mutations";
+import { QUERY_USER } from "../../utils/queries";
 import './CreateContract.css'
 
-export default function CreateContract() {
+const CreateContract = () =>  {
+  const [contractData, setContractData] = useState('');
+
+  const [contractText, setContractText] = useState(0);
+
+  const [newResponse, { error }] = useMutation(ADD_RESPONSE, {
+    update(cache, {data: { newResponse } }) {
+      try { 
+        const { responses } = cache.readQuery({ query: QUERY_RESPONSES });
+
+        cache.writeQuery({
+          query: QUERY_RESPONSES,
+          data: { responses: [newResponse, ...responses] },
+        });
+      } catch(err) {
+        console.error(err);
+      }
+
+      const { me } = cache.readQuery({ query: QUERY_USER });
+      cache.writeQuery({
+        query: QUERY_USER,
+        data: { me: { ...me, thoughts: [...me.thoughts, newResponse] } },
+      });
+    },
+  });
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data } = await newResponse({
+        variables: {
+          contractData,
+          username: Auth.getProfile().data.username,
+        },
+      });
+
+      setContractData('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
   return (
     <div>
       <div className='create-new-contract-banner'></div>
@@ -46,3 +94,5 @@ export default function CreateContract() {
     </div>
   )
 }
+
+export default = CreateContract;
