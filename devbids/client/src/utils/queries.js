@@ -22,8 +22,8 @@ query Contracts {
     }
   }
 `
-
-export const QUERY_USER_CONTRACTS = gql `
+// query for contracts by user to render to profile page
+export const QUERY_USER_CONTRACTS = gql`
 query UserContracts {
     userContracts {
       username
@@ -34,7 +34,7 @@ query UserContracts {
     }
   }
 `
-
+// NOT WORKING YET!
 export const QUERY_CATEGORY_CONTRACTS = gql`
   query Category($categoryId: ID!) {
     category(categoryId: $categoryId) {

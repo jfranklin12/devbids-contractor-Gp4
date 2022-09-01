@@ -79,13 +79,13 @@ const resolvers = {
       return { token, user };
     },
     // addContract mutation
-    addContract: async (parent, { username, title, description, category, price, contractDate }, context) => {
+    addContract: async (parent, { username, title, description, categoryName, price, contractDate }, context) => {
       if (context.user) {
         const contract = await Contract.create({
           username,
           title,
           description,
-          category,
+          categoryName,
           price,
           contractDate,
           username: context.user.username,
@@ -102,17 +102,22 @@ const resolvers = {
     },
 
     // addResponse mutation
-    addResponse: async (parent, { contractId, description }) => {
-      return Thought.findOneAndUpdate(
+    addResponse: async (parent, { contractId, responseDescription, price, responseDate }, context) => {
+      if (context.user) {
+      return Contract.findOneAndUpdate(
         { _id: contractId },
         {
-          $addToSet: { responses: { description } },
+          $addToSet: {
+            responses: { responseDescription, price, responseDate, responseAuthor: context.user.username },
+          },
         },
         {
           new: true,
         }
       );
-    },
+    }
+    throw new AuthenticationError('You need to be logged in!');
+  },
 
     // update user mutation
     updateUser: async (parent, args, context) => {
