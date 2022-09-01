@@ -108,13 +108,40 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    // delete contract
+    deleteContract: async (parent, { contractId }, context) => {
+      if (context.user) {
+        const contract = await Contract.findOneAndDelete({
+          _id: contractId,
+          contractAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { contracts: contract._id } }
+        );
+
+        return contract;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
     // delete response
-    deleteResponse: async (parent, { contractId, responseId }) => {
-      return Contract.findOneAndUpdate(
-        { _id: contractId },
-        { $pull: { responses: { _id: responseId } } },
-        { new: true }
-      );
+    deleteResponse: async (parent, { contractId, responseId }, context) => {
+      if (context.user) {
+        return Contract.findOneAndUpdate(
+          { _id: contractId },
+          {
+            $pull: {
+              response: {
+                _id: responseId,
+                responseAuthor: context.user.username,
+              },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
 
   },

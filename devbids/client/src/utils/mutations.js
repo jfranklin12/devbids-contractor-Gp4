@@ -38,7 +38,13 @@ mutation Mutation($contractData: ContractInput) {
       contractDate
       _id
     }
-  }`
+}`
+// add response
+
+// delete contract
+
+// delete response
+
 
 //   update user
 export const UPDATE_USER = gql`
