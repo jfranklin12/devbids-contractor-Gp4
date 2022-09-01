@@ -1,75 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { Form, Col, Button, Link } from "react-bootstrap";
-import { useMutation } from '@apollo/client'; 
+import React from 'react';
 import './SearchBar.css'
-import SearchIcon from "@material-ui/icons/Search";
 
-const SearchBar = ({placeholder, data}) => {
+export default class SearchBar extends React.Component {   
+    constructor (props) {
+        super (props);
+        this.state = {
+            suggestions: [], 
+            text: ''
+        };
+            
+    }
 
-    const [filteredData, setFilteredData] = useState([]);
-    const [userInput, setUserInput] = useState('');
-
-    // const [login, { error }] = useMutation([])
-
-    const handleFilter = async (event) => {
-        event.preventDefault();
-        const searchContent  = event.target.value;
-        setUserInput(searchContent);
-
-        const newFilter = data.filter((value) => {
-            return value.category.toLowerCase().includes(searchContent.toLowerCase());
-        });
-
-        if (searchContent === "") {
-            setFilteredData([]);
-        } else {
-            setFilteredData(searchContent);
+    onTextChange = (e) => {
+        const { items } = this.props;
+        const value = e.target.value;
+        let suggestions = [];
+        if (value.length > 0){
+            const regex = new RegExp(`^${value}`, 'i');
+            suggestions = items.sort().filter(v => regex.test(v));
         }
+        this.setState(() => ({ suggestions, text: value }));
+    }
+
+    renderSuggestions () {
+        const { suggestions } = this.state;
+        if (suggestions.length === 0) {
+            return null;
+        }
+        return (
+            <ul>
+                {suggestions.map((item) => <li onClick={() => this.suggestionSelected(item)}>{item}</li>)}
+            </ul>
+        )
+    }
+
+    suggestionSelected (value) {
+        this.setState(() => ({
+            text: value,
+            suggestions: [],
+        }));
     };
-
-        // try {
-        //     const url  = `localhost`
-        //     const query = `${url}${searchInput}`
-
-        //     const response = await fetch(query)
-
-
-        // } catch (err) {
-        //     console.error(err);
-        // }
-
-return (
-    <>
-    <Form onSubmit={{/*handleFormSubmit*/}}>
-        <Form.Row>
-            <Col xs={12} md={8}>
-                <Form.Control
-                    name = 'userSearch'
-                    className= 'searchBar'
-                    // value = {userSearch}
-                    // onChange = {(e) => setUserSearch(e.target.value)}
-                    type = 'text'
-                    size = 'lg'
-                    placeholder = {placeholder}
-                    data = {data}
-                    />
-                <SearchIcon />
-                <Col className ="dataResult">
-                {data.map((value, key) => {
-                    return <a href= {value.category} className='autofillResult'>{value.category}</a>
-                })}
-            </Col>
-            </Col>
-           
-            <Col xs={12} md={4}>
-                <Button type='submit' size='lg'>
-                    Search
-                </Button>
-            </Col>
-        </Form.Row>
-    </Form>
-    </>
-);
-};
-
-export default SearchBar;
+    render() {
+        const { text } = this.state;
+        return (
+            <div className = "SearchBar">
+                <input value={text} onChange={this.onTextChange} type = "text" placeholder="Example: React"/>
+                    <ul>
+                        {this.renderSuggestions()}
+                    </ul>
+            </div>
+        )
+        
+    }
+}
