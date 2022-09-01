@@ -10,34 +10,27 @@ import "./Homepage.css";
 export default function Homepage() {
   return (
     <>
+      <div className="homepage-banner"></div>
       <Jumbotron className="jumbotron text-light bg-secondary">
         <h1>Let's Get to Work.</h1>
-        <Row>
+        <Row className="centerRow">
         <Col xs={12} md={8}>
         <SearchBar items={allCategories} placeholder = "Example: React"/>
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} md={2}>
           <Button type='submit' size='lg'>
               Search
           </Button>
         </Col>
-        </Row>
-        <br></br>
-        <Col xs={12} md={4}>
+        <Col xs={12} md={2}>
           <Link to="/createContract">
-            <Button>Create a Contract</Button>
-          </Link>
-          <Link to="#searchContract">
-            <Button>Search for Contracts</Button>
+            <Button size='lg'>Create a Contract</Button>
           </Link>
         </Col>
-
-        {/* <Link to="/searchContract">
-                <button>Search for Contracts</button>
-                </Link> */}
+        </Row>
       </Jumbotron>
-      <Container className = "textBody">
-        <Row className="aboutUs">
+      <Container className='textBody'>
+        <Row className="aboutUs bg-light p-3">
           <h1>About Us</h1>
 
           <p>
@@ -55,7 +48,7 @@ export default function Homepage() {
           </p>
         </Row>
 
-        <Row>
+        <Row className="useDevbids bg-light p-3">
           <Col>
             <Row>
               <h1>Use DevBids...</h1>

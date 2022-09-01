@@ -1,10 +1,28 @@
-.aboutUs p {
-    font-size: larger;
 
+h1 {
+    font-weight: 900;
+    text-align: center;
+}
+.useDevbids ul {
+    padding: 2rem;
 }
 
-li {
+.useDevbids li {
+    background-color: #e4ebe4;
+    margin: .4rem 0;
+    padding: .5rem;
+    list-style: none;
     font-size: larger;
+}
+.aboutUs p {
+  font-size: larger;
+}
+.homepage-banner {
+    /* Image from https://unsplash.com/s/photos/collaboration */
+  background: url('../../../public/img/homepage-banner.jpg') no-repeat center
+    center/cover;
+  height: 50vh;
+  width: 100vw;
 }
 
 .textBody {
@@ -15,4 +33,7 @@ li {
     padding: 20px;
     padding-left: 200px;
     margin-bottom: 25px;
+}
+.centerRow {
+    justify-content: center;
 }
