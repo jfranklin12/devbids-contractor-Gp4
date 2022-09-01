@@ -23,9 +23,9 @@ const resolvers = {
       throw new AuthenticationError("Log in unsuccessful!");
     },
     // contracts all contracts
-    contracts: async () => {
-      // can sort by adding .sort({ createdAt: -1 }) and add to typeDefs
-      return await Contract.find();
+    contracts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Contract.find(params);
     },
     // user contracts
     userContracts: async (parent, args, context) => {
