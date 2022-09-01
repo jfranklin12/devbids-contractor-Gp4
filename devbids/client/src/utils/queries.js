@@ -24,30 +24,13 @@ query Contracts {
 `
 
 export const QUERY_USER_CONTRACTS = gql `
-    query UserContracts {
+query UserContracts {
     userContracts {
-      _id
-      user {
-        username
-      }
+      username
       title
       description
-      category {
-        name
-      }
       price
       contractDate
-      responses {
-        responseAuthor {
-          username
-        }
-        description
-        category {
-          name
-        }
-        price
-        responseDate
-      }
     }
   }
 `
