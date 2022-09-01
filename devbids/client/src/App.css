@@ -1,4 +1,5 @@
 /* Global styling */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 #root {
   background-color: rgb(136, 148, 142);
   display: flex;
@@ -6,7 +7,6 @@
   font-family: 'Poppins', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
 
@@ -82,4 +82,13 @@
 .btn-submit:hover {
   scale: 1.1;
   transition: 0.1s;
+}
+
+@media (max-width: 720px) {
+  .form-container {
+    margin: 1rem;
+  }
+  .btn-submit {
+    margin: 0 1rem ;
+  }
 }
