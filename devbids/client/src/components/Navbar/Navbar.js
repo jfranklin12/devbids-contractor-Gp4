@@ -81,7 +81,7 @@ function NavBar() {
   const handleShow = () => {
     setShow(true);
   };
-
+  const user = JSON.parse(localStorage.getItem("user"));
   return (
     <Navbar variant="dark" className="py-3 nav-container" expand="lg">
       <LoginSignupModal
@@ -110,6 +110,7 @@ function NavBar() {
                 <Nav.Link onClick={Auth.logout} className="nav-text">
                   Logout
                 </Nav.Link>
+                <div>Welcome {user.username}!</div>
               </>
             ) : (
               <Button onClick={handleShow}>Login or Sign Up</Button>
