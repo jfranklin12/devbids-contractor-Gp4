@@ -3,7 +3,12 @@
   background-color: rgb(136, 148, 142);
   display: flex;
   flex-direction: column;
+  font-family: 'Poppins', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
 
 
 /* Container for forms */

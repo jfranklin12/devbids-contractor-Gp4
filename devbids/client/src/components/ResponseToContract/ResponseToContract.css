@@ -1,0 +1,59 @@
+:root {
+  --response-border-color: #000;
+}
+
+.response-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 4rem 2rem;
+  border-left: 1px solid var(--response-border-color);
+  border-right: 1px solid var(--response-border-color);
+  border-bottom: 1px solid var(--response-border-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 1.2rem;
+}
+.contract-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.contract-form textarea {
+  height: 10rem;
+}
+.response-section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.response-divider {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.left-response {
+    width: 47%;
+}
+.right-response {
+    width: 47%;
+}
+.response-container .btn-submit {
+    margin: .5rem 0 0;
+}
+
+@media (max-width: 720px) {
+    .response-container {
+        margin: 0 .8rem .8rem;
+    }
+    .response-container .btn-submit {
+        font-size: .8rem;
+    }
+    .left-response {
+        width: 100%;
+    }
+    .right-response {
+        width: 100%;
+    }
+}

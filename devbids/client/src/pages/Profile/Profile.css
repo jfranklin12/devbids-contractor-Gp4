@@ -4,8 +4,14 @@
 .my-contracts {
   font-size: 30px;
 }
-
-.contracts-container {
+.profile-banner {
+  /* Image from https://unsplash.com/photos/DJ7bWa-Gwks */
+  background: url('../../../public/img/profile-banner.jpg') no-repeat center
+    center/cover;
+  height: 50vh;
+  width: 100vw;
+}
+/* .contracts-container {
   margin: 1.5rem;
   border: 1px solid #000;
   border-radius: 1rem;
@@ -13,4 +19,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
