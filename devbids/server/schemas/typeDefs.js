@@ -80,7 +80,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String! password: String!, firstName: String!, lastName: String!): Auth
     addContract(contractData: ContractInput): Contract
-    addResponse(contractId: ID!, description: String!): Contract
+    addResponse(contractId: ID!, description: String!,responseAuthor: String!, category: [String]!, price: Int, responseDate: String): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     deleteContract(contractId: ID!): Contract
     deleteResponse(contractId: ID!, responseId: ID!): Contract

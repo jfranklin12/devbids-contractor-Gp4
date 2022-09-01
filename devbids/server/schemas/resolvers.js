@@ -13,8 +13,10 @@ const resolvers = {
   Query: {
     // get user info
     user: async (parent, args, context) => {
+      console.log(context.user);
       if (context.user) {
-        const user = await User.findById(context.user._id);
+        
+        const user = await User.findById(context.user._id).select('-__v -password');
 
         return user;
       }
@@ -95,11 +97,11 @@ const resolvers = {
     },
 
     // addResponse mutation
-    addResponse: async (parent, { contractId, descritpion }) => {
+    addResponse: async (parent, { contractId, description }) => {
       return Thought.findOneAndUpdate(
         { _id: contractId },
         {
-          $addToSet: { responses: { descritpion } },
+          $addToSet: { responses: { description } },
         },
         {
           new: true,
