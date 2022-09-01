@@ -83,3 +83,12 @@
   scale: 1.1;
   transition: 0.1s;
 }
+
+@media (max-width: 720px) {
+  .form-container {
+    margin: 1rem;
+  }
+  .btn-submit {
+    margin: 0 1rem ;
+  }
+}

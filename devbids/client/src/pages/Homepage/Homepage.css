@@ -12,8 +12,14 @@ li {
     padding: .5rem;
     list-style: none;
 }
+.image {
+  width: 100%;
+}
 .aboutUs p {
   font-size: larger;
+}
+.jumbotron-background {
+    background-image: linear-gradient(#777, #444);
 }
 .homepage-banner {
     /* Image from https://unsplash.com/s/photos/collaboration */
