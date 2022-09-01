@@ -1,6 +1,13 @@
-const { AuthenticationError } = require('apollo-server-express');
-const { Category, Contract, Response, User, Transaction, Comment } = require('../models');
-const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require("apollo-server-express");
+const {
+  Category,
+  Contract,
+  Response,
+  User,
+  Transaction,
+  Comment,
+} = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
@@ -23,7 +30,9 @@ const resolvers = {
     // user contracts
     userContracts: async (parent, args, context) => {
       if (context.user) {
-        const contracts = await Contract.find({ username: context.user.username });
+        const contracts = await Contract.find({
+          username: context.user.username,
+        });
 
         // const user = await User.findById(context.user._id).populate({
         //   path: 'contract',
@@ -33,7 +42,7 @@ const resolvers = {
         return contracts;
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     // get contracts by category
     category: async (parent, { categoryId }) => {
@@ -49,13 +58,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect email or password");
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
+        throw new AuthenticationError("Incorrect email password");
       }
 
       const token = signToken(user);
@@ -84,7 +93,7 @@ const resolvers = {
 
         return contract;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     // addResponse mutation
@@ -95,7 +104,7 @@ const resolvers = {
           $addToSet: { responses: { description } },
         },
         {
-          new: true
+          new: true,
         }
       );
     },
@@ -108,7 +117,7 @@ const resolvers = {
         });
       }
 
-      throw new AuthenticationError('Not logged in');
+      throw new AuthenticationError("Not logged in");
     },
     // delete contract
     deleteContract: async (parent, { contractId }, context) => {
@@ -125,7 +134,7 @@ const resolvers = {
 
         return contract;
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
     // delete response
     deleteResponse: async (parent, { contractId, responseId }, context) => {
@@ -143,9 +152,8 @@ const resolvers = {
           { new: true }
         );
       }
-      throw new AuthenticationError('You need to be logged in!');
+      throw new AuthenticationError("You need to be logged in!");
     },
-
   },
 };
 
