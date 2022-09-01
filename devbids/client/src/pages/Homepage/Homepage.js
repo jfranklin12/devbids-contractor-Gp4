@@ -13,7 +13,7 @@ export default function Homepage() {
       <div className="homepage-banner"></div>
       
 
-      <Jumbotron className="jumbotron text-light bg-secondary">
+      <Jumbotron className="jumbotron text-light jumbotron-background">
         <h1>Let's Get to Work.</h1>
         <Row className="centerRow">
         <Col xs={12} md={8}>
