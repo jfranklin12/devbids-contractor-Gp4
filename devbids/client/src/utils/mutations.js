@@ -1,20 +1,8 @@
 import { gql } from "@apollo/client";
-// mutation for adding user working
+
 export const ADD_USER = gql`
-  mutation AddUser(
-    $username: String!
-    $email: String!
-    $password: String!
-    $firstName: String!
-    $lastName: String!
-  ) {
-    addUser(
-      username: $username
-      email: $email
-      password: $password
-      firstName: $firstName
-      lastName: $lastName
-    ) {
+  mutation AddUser($username: String!, $email: String!, $password: String!, $firstName: String!, $lastName: String!) {
+    addUser(username: $username, email: $email, password: $password, firstName: $firstName, lastName: $lastName) {
       token
       user {
         _id
@@ -22,7 +10,7 @@ export const ADD_USER = gql`
     }
   }
 `;
-// mutation for login working
+
 export const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
@@ -33,58 +21,50 @@ export const LOGIN = gql`
     }
   }
 `;
-// mutation for adding contract working
+
+// working
 export const ADD_CONTRACT = gql`
-mutation AddContract($username: String!, $title: String!, $description: String!, $price: Int, $contractDate: String) {
-  addContract(username: $username, title: $title, description: $description, price: $price, contractDate: $contractDate) {
-    username
-    title
-    description
-    price
-    contractDate
-  }
-}
-`;
-// add response to contract working!
-export const ADD_RESPONSE = gql`
-mutation Mutation($contractId: ID!, $responseDescription: String!, $price: Int) {
-  addResponse(contractId: $contractId, responseDescription: $responseDescription, price: $price) {
-    username
-    title
-    description
-    price
-    contractDate
-    responses {
-      responseAuthor
-      responseDescription
-      price
-      responseDate
-    }
-  }
-}
-`;
-// delete contract
-export const DELETE_CONTRACT = gql`
-  mutation DeleteContract($contractId: ID!) {
-    deleteContract(contractId: $contractId) {
-      _id
-      user {
-        username
-      }
+  mutation AddContract($username: String!, $title: String!, $description: String!, $price: Int, $contractDate: String) {
+    addContract(username: $username, title: $title, description: $description, price: $price, contractDate: $contractDate) {
+      username
       title
       description
-      category {
-        name
-      }
+      price
+      contractDate
+    }
+  }
+`;
+// add response... Working
+export const ADD_RESPONSE = gql`
+  mutation AddResponse($contractId: ID!, $responseDescription: String!, $price: Int, $responseDate: String) {
+    addResponse(contractId: $contractId, responseDescription: $responseDescription, price: $price, responseDate: $responseDate) {
+      username
+      title
+      description
       price
       contractDate
       responses {
-        _id
+        responseAuthor
+        price
+        responseDescription
+        responseDate
       }
     }
   }
 `;
-// delete response
+// delete contract... WORKING WITH VALIDATION
+export const DELETE_CONTRACT = gql`
+  mutation DeleteContract($contractId: ID!) {
+    deleteContract(contractId: $contractId) {
+      username
+     title
+     description
+     price
+     contractDate
+    }
+  }
+`;
+// delete response... UNKNOWN
 export const DELETE_RESPONSE = gql`
   mutation DeleteResponse($contractId: ID!, $responseId: ID!) {
     deleteResponse(contractId: $contractId, responseId: $responseId) {

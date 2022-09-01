@@ -12,7 +12,7 @@ const typeDefs = gql`
     username: String!
     title: String!
     description: String!
-    categoryName: String
+    categoryName: [Category]
     price: Int
     contractDate: String
     responses: [Response]
@@ -40,7 +40,7 @@ const typeDefs = gql`
     contractUser: Contract!
     responseUser: Response!
     contractId: Contract!
-    category: [Category]!
+    categoryName: [Category]!
     price: Int
     transactionDate: String
   }
