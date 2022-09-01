@@ -4,9 +4,11 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 function ProfileCard() {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Header className="text-center">Profile</Card.Header>
-      <ListGroup variant="flush">
+    <Card style={{ width: "25rem" }}>
+      <Card.Header className="text-center" style={{ color: "black" }}>
+        Profile
+      </Card.Header>
+      <ListGroup variant="flush" style={{ color: "black" }}>
         <ListGroup.Item>First Name:</ListGroup.Item>
         <ListGroup.Item>Last Name:</ListGroup.Item>
         <ListGroup.Item>Username:</ListGroup.Item>
