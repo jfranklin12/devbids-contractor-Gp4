@@ -17,15 +17,15 @@ const contractSchema = new Schema(
       type: String,
       required: true
     },
-    category: [
-      {
-        CategoryName: {
-          type: String,
-          required: true,
-          trim: true
-        },
-      }
-    ],
+    // category: [
+    //   {
+    //     CategoryName: {
+    //       type: String,
+    //       required: true,
+    //       trim: true
+    //     },
+    //   }
+    // ],
     responses: [
       {
         responseAuthor: {

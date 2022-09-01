@@ -8,6 +8,7 @@ export default function Contracts() {
       <div className='contacts-banner'></div>
       <div className="form-container">
         <div className="contracts-title">Contracts</div>
+        
       </div>
     </div>
   )
