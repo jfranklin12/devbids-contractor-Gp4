@@ -17,8 +17,9 @@ export default function ContractCard() {
 
   
   const responseHandler = () => {
-    // console.log(contracts)
+    console.log(contracts)
     setContractBid('active')
+    
   }
 
   return (
