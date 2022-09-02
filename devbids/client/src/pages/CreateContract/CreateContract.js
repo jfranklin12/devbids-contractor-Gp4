@@ -20,18 +20,9 @@ const CreateContract = () =>  {
 
   const [newContract, { error }] = useMutation(ADD_CONTRACT);
 
-      // const { user } = cache.readQuery({ query: QUERY_USER });
-      // console.log(user);
-      // cache.writeQuery({
-      //   query: QUERY_USER,
-      //   data: { user: { ...user, contracts: [...user.contracts, newContract] } },
-      // });
-  
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setContractData({...contractData, [name]: value });
-    console.log(contractData);
   }
 
   const handleFormSubmit = async (e) => {
@@ -49,23 +40,16 @@ const CreateContract = () =>  {
       return false;
     } 
 
-    console.log(contractData);
+    const userData = JSON.parse(localStorage.getItem('user'));
     try {
       const { data } = await newContract({
-        variables: { ...form },
+        variables: { ...contractData, user_id: userData._id },
       });
       
     } catch (err) {
       console.error(err);
     }
 
-    // setContractData({
-    //   title: "",
-    //   category: "",
-    //   price: 0,
-    //   description: "",
-    //   contractDate: "",
-    // });
   };
   
   return (
