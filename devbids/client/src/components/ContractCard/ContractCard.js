@@ -5,24 +5,22 @@ import ResponseToContract from "../ResponseToContract/ResponseToContract";
 import { useQuery } from "@apollo/client";
 import "./ContractCard.css";
 
-import { QUERY_CONTRACTS } from "../../utils/queries";
-
-
 export default function ContractCard({
+  // Parameters that are mapped to the contract card from page the cards are to display on
   title,
   price,
   contractDate,
   description,
   username,
 }) {
-
+  // State to determine if the response section needs to display and if the make offer button needs to disappear
   const [contractBid, setContractBid] = useState("inactive");
 
   const responseHandler = () => {
-    console.log();
     setContractBid("active");
   };
 
+  // Card that is returned
   return (
     <Card  style={{ width: "95%" }}>
       <Card.Body className='contract-card'>

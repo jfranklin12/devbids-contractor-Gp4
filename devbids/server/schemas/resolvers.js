@@ -77,28 +77,28 @@ const resolvers = {
     // addContract mutation... WORKING, unable to get category name to generate
     addContract: async (
       parent,
-      { username, title, description, category, price, contractDate },
+      { username, user_id, title, description, category, price, contractDate },
       context
     ) => {
-      if (context.user) {
+
+      if (!context.user) {
         const contract = await Contract.create({
-          username,
           title,
           description,
           category,
           price,
           contractDate,
-          username: context.user.username,
+          username: context.body.variables.username,
         });
 
         await User.findOneAndUpdate(
-          { _id: context.user._id },
+          { _id: user_id },
           { $addToSet: { contracts: contract._id } }
         );
 
         return contract;
       }
-      throw new AuthenticationError("You need to be logged in!");
+      throw new AuthenticationError("You need to be logged in.");
     },
 
     // addResponse mutation... WORKING

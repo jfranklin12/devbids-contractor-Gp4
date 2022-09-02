@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 
 import { QUERY_USER_CONTRACTS } from "../../utils/queries";
 
+// Profile page
 export default function Profile() {
   const { loading, data } = useQuery(QUERY_USER_CONTRACTS);
 
@@ -15,10 +16,12 @@ export default function Profile() {
       <div className="profile-banner"></div>
       <div className="form-container">
         <div className="profile-title">Profile</div>
-        <div>
+        <div className="profile-container">
+          {/* Details of user signed in */}
           <ProfileCard />
         </div>
         <div className="contracts-container">
+          {/* All contracts the user has */}
           <div className="my-contracts">My Contracts</div>
           <div>
             {contracts.map((contract, index) => (
