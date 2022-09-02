@@ -1,18 +1,39 @@
-import React from "react";
+import React, {useState} from "react";
 // import React, { useState, useEffect } from 'react';
 import { HashRouter as Link } from "react-router-dom";
 import { Jumbotron, Container, Image, Button, Col, Row,} from "react-bootstrap";
 import SearchBar from "../../components/SearchBar/SearchBar"
 import allCategories from "../../data/categories"
-// import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
+import LoginSignupModal from "../../components/LoginSignUpModal/LoginSignUpModal";
 import "./Homepage.css";
 
 export default function Homepage() {
+
+  function goToCreate () {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    if (!token) {
+      return handleShow();
+    }
+
+    window.location.assign("/createContract")
+  }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    setShow(true);
+  };
+  
+  
   return (
     <>
       <div className="homepage-banner"></div>
-      
-
+      <LoginSignupModal
+        show={show}
+        handleClose={handleClose}
+      ></LoginSignupModal>
       <Jumbotron className="jumbotron text-light jumbotron-background">
         <h1>Let's Get to Work.</h1>
         <Row className="centerRow">
@@ -25,7 +46,7 @@ export default function Homepage() {
           </Button>
         </Col>
         <Col xs={12} md={2}>
-            <Button size='lg' to="/createContract">Create a Contract</Button>
+            <Button size='lg' onClick={goToCreate}>Create a Contract</Button>
         </Col>
         </Row>
       </Jumbotron>

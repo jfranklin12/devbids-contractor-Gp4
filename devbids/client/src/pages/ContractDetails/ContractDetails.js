@@ -6,7 +6,7 @@ import Auth from "../../utils/auth";
 import ResponseCard from "../../components/ResponseCard/ResponseCard"
 import { useMutation, useQuery } from "@apollo/client";
 import { DELETE_CONTRACT, DELETE_RESPONSE } from "../../utils/mutations";
-import { QUERY_USER, QUERY_CONTRACTS, } from "../../utils/queries";
+import { QUERY_CONTRACTS, } from "../../utils/queries";
 
 export default function ContractDetails(props) {
   const { loading, data } = useQuery(QUERY_CONTRACTS);
@@ -15,9 +15,14 @@ export default function ContractDetails(props) {
   // });
 
   const [deleteContract, { error }] = useMutation(DELETE_CONTRACT);
+
+
+
+  const contracts = data?.contracts || [];
+
   console.log(data);
-  console.log(userData);
-  const userData = data?.contracts || {};
+  console.log(contracts);
+
   const handleDeleteContract = async (contractId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -26,7 +31,7 @@ export default function ContractDetails(props) {
     }
 
     try {
-      const { data } = await deleteContract({
+      const { alldata } = await deleteContract({
         variables: { contractId },
       });
 
