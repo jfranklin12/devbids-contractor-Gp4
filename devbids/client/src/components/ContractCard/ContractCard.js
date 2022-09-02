@@ -16,10 +16,6 @@ export default function ContractCard({
 }) {
   const [contractBid, setContractBid] = useState("inactive");
 
-  // const {loading, data} = useQuery(QUERY_CONTRACTS)
-
-  // const contracts = data?.contracts || []
-
   const responseHandler = () => {
     console.log();
     setContractBid("active");
