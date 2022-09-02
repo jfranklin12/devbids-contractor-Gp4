@@ -17,7 +17,7 @@ export default function ContractCard() {
 
   
   const responseHandler = () => {
-    console.log(contracts)
+    // console.log(contracts)
     setContractBid('active')
   }
 
@@ -25,7 +25,7 @@ export default function ContractCard() {
     <Card style={{ width: '50rem' }}>
       <Card.Body>
         <Card.Title style={{ color: '#5b57db', fontSize: '27px' }}>
-          Job Title: {contracts[0].title}
+           Job Title: {contracts[0].title}
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '20px' }}>
           Skills Required: 
