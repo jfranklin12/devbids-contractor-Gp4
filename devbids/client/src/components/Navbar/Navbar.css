@@ -1,4 +1,4 @@
- @import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
 
 :root {
   --nav-color: linear-gradient(#777, #444);
@@ -176,13 +176,18 @@ ul {
   color: #fff;
   text-decoration: none;
   scale: 1.08;
-  transition: .1s;
+  transition: 0.1s;
 }
 .nav-links button:hover {
   scale: 1.05;
-  transition: .1s;
-  border: .5px #000 solid;
+  transition: 0.1s;
+  border: 0.5px #000 solid;
 }
-.logo h1{
+.logo h1 {
   font-size: 1.8rem;
+}
+
+.welcome-text {
+  color: white !important;
+  font-size: 30px !important;
 }
