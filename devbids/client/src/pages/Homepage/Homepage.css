@@ -43,3 +43,7 @@ h1 {
 .centerRow {
     justify-content: center;
 }
+.btn-margin {
+  margin: .5rem;
+  width: 10rem;
+}

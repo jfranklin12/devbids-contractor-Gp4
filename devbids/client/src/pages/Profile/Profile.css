@@ -11,6 +11,11 @@
   height: 50vh;
   width: 100vw;
 }
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* .contracts-container {
   margin: 1.5rem;
   border: 1px solid #000;

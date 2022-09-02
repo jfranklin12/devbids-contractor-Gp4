@@ -1,7 +1,7 @@
-import "./Profile.css";
-import React from "react";
-import ContractCard from "../../components/ContractCard/ContractCard";
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import './Profile.css'
+import React from 'react'
+import ContractCard from '../../components/ContractCard/ContractCard'
+import ProfileCard from '../../components/ProfileCard/ProfileCard'
 
 export default function Profile() {
   return (
@@ -9,7 +9,7 @@ export default function Profile() {
       <div className="profile-banner"></div>
       <div className="form-container">
         <div className="profile-title">Profile</div>
-        <div>
+        <div className='profile-container'>
           <ProfileCard />
         </div>
         <div className="contracts-container">
@@ -18,5 +18,5 @@ export default function Profile() {
         </div>
       </div>
     </div>
-  );
+  )
 }
