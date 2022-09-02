@@ -9,9 +9,14 @@ import { QUERY_USER, QUERY_CONTRACTS } from "../../utils/queries";
 import './CreateContract.css'
 
 const CreateContract = () =>  {
-  const [contractData, setContractData] = useState('');
-
-  const [searchContracts, setSearchContracts] = useState([]);
+  const [contractData, setContractData] = useState({
+    contactName: "",
+    email: "",
+    title: "",
+    category: "",
+    price:  "",
+    completionDate: "",
+  });
 
   const [newContract, { error }] = useMutation(ADD_CONTRACT, {
     update(cache, {data: { newContract } }) {
@@ -27,11 +32,11 @@ const CreateContract = () =>  {
         console.error(err);
       }
 
-      // const { me } = cache.readQuery({ query: QUERY_USER });
-      // cache.writeQuery({
-      //   query: QUERY_USER,
-      //   data: { me: { ...me, contract: [...me.contract, newContract] } },
-      // });
+      const { user } = cache.readQuery({ query: QUERY_USER });
+      cache.writeQuery({
+        query: QUERY_USER,
+        data: { user: { ...user, contracts: [...user.contracts, newContract] } },
+      });
     },
   });
 
@@ -68,30 +73,31 @@ const CreateContract = () =>  {
             <div className="form-section">
               <h2>Contact Information</h2>
               <label for="contact-name">Name:</label>
-              <input type="text" id="contact-name" name="contact-name" />             
+              <input type="text" id="contact-name" name="contactName" value="vince" />             
               <label for="phone">Phone:</label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
+                value="555-555-5555"
               />
               <label for="email">Email:</label>
-              <input type="email" id="email" name="email" />
+              <input type="email" id="email" name="email" value="vince@yang.com" />
             </div>
             <div className="form-section">
               <h2>Job Information</h2>
               <label for="title">Job Title:</label>
-              <input type="text" id="title" name="title" />
+              <input type="text" id="title" name="title" value="do the thing"/>
               <label for="category">Skill Required:</label>
-              <SearchBar items = {allCategories} id = "category" name="category"/>
-              <label for="price">Price:</label>
-              <input className="priceInput" type="number" id="price" name="price" />
+              <SearchBar items = {allCategories} id = "category" name="category" value="React"/>
+              <label for="price" >Price:</label>
+              <input className="priceInput" type="number" id="price" name="price" value="500"/>
               <label for="completion-date">Date to be completed by:</label>
-              <input type="date" id="completion-date" name="completion-date" />
+              <input type="date" id="completion-date" name="completionDate" />
             </div>
             <div className="form-section">
               <h2>Job Description</h2>
-              <textarea id="description" name="description" />
+              <textarea id="description" name="description" value="do the thing"/>
             </div>
           </div>
           <button className="btn-submit" type="submit" onSubmit={handleFormSubmit}>
