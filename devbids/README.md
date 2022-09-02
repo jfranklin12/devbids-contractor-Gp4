@@ -61,6 +61,10 @@ There are no tests for this project.
 * Payment processing functionality
 * Contract verbiage changes based on parameters of job.
 
+## Deployed App
+
+[Heroku Link](https://devbids-gp4.herokuapp.com/)
+
 ## Questions
 
 If you have any questions, contact us at j.franks725@gmail.com, taylor.marymargaret@gmail.com, huntersteffner@gmail.com, and vyang14.dev@gmail.com. Visit the GitHub page for the project by clicking the following link [GitHub Page](https://github.com/vyang14/devbids-contractor-Gp4).
