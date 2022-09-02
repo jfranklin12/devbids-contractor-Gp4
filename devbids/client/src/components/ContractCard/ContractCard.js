@@ -8,7 +8,7 @@ import './ContractCard.css'
 
 import {QUERY_CONTRACTS} from '../../utils/queries'
 
-export default function ContractCard() {
+export default function ContractCard(props) {
   const [contractBid, setContractBid] = useState('inactive')
 
   const {loading, data} = useQuery(QUERY_CONTRACTS)
