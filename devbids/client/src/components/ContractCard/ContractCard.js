@@ -7,15 +7,21 @@ import "./ContractCard.css";
 
 import { QUERY_CONTRACTS } from "../../utils/queries";
 
-export default function ContractCard() {
+export default function ContractCard({
+  title,
+  price,
+  contractDate,
+  description,
+  username,
+}) {
   const [contractBid, setContractBid] = useState("inactive");
 
-  const { loading, data } = useQuery(QUERY_CONTRACTS);
+  // const {loading, data} = useQuery(QUERY_CONTRACTS)
 
-  const contracts = data?.contracts || [];
+  // const contracts = data?.contracts || []
 
   const responseHandler = () => {
-    console.log(contracts);
+    console.log();
     setContractBid("active");
   };
 
@@ -23,22 +29,22 @@ export default function ContractCard() {
     <Card style={{ width: "50rem" }}>
       <Card.Body>
         <Card.Title style={{ color: "#5b57db", fontSize: "27px" }}>
-          {/* Job Title: {contracts[0].title} */}
+          Job Title: {title}
         </Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
           Skills Required:
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          {/* Price Range: ${contracts[0].price} */}
+          Price Range: ${price}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "20px" }}>
-          {/* Completion Date: {contracts[0].contractDate} */}
+          Completion Date: {contractDate}
         </Card.Subtitle>
         <Card.Text style={{ color: "#5b57db", fontSize: "18px" }}>
-          {/* Job Description: {contracts[0].description} */}
+          Job Description: {description}
         </Card.Text>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: "18px" }}>
-          {/* Published by: {contracts[0].username} */}
+          Published by: {username}
         </Card.Subtitle>
         {contractBid === "inactive" && (
           <Button onClick={responseHandler} variant="primary" type="submit">
