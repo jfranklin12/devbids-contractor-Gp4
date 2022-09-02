@@ -74,6 +74,7 @@ import LoginSignupModal from "../LoginSignUpModal/LoginSignUpModal";
 import "./Navbar.css";
 import Auth from "../../utils/auth";
 
+// Function to make navbar responsive
 function NavBar() {
   const [show, setShow] = useState(false);
 

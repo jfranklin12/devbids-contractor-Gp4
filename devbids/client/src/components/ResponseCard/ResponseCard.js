@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 import React from "react";
 
+// These responses can be seen by the one who posted the job offer
 export default function ResponseCard() {
   return (
     <Card style={{ width: "50rem" }}>

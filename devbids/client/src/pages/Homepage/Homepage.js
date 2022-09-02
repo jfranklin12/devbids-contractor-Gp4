@@ -1,32 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from 'react'
 // import React, { useState, useEffect } from 'react';
-import { HashRouter as Link } from "react-router-dom";
-import { Jumbotron, Container, Image, Button, Col, Row,} from "react-bootstrap";
-import SearchBar from "../../components/SearchBar/SearchBar"
-import allCategories from "../../data/categories"
-import Auth from '../../utils/auth';
-import LoginSignupModal from "../../components/LoginSignUpModal/LoginSignUpModal";
-import "./Homepage.css";
+import { HashRouter as Link } from 'react-router-dom'
+import { Jumbotron, Container, Image, Button, Col, Row } from 'react-bootstrap'
+import SearchBar from '../../components/SearchBar/SearchBar'
+import allCategories from '../../data/categories'
+import Auth from '../../utils/auth'
+import LoginSignupModal from '../../components/LoginSignUpModal/LoginSignUpModal'
+import './Homepage.css'
 
+// Homepage that users will see when first logging in
 export default function Homepage() {
-
-  function goToCreate () {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  function goToCreate() {
+    const token = Auth.loggedIn() ? Auth.getToken() : null
     if (!token) {
-      return handleShow();
+      return handleShow()
     }
-
-    window.location.assign("/createContract")
+    // It redirects users to create contract when clicking on the button
+    window.location.assign('/createContract')
   }
 
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false)
   const handleShow = () => {
-    setShow(true);
-  };
-  
-  
+    setShow(true)
+  }
+
   return (
     <>
       <div className="homepage-banner"></div>
@@ -37,17 +36,17 @@ export default function Homepage() {
       <Jumbotron className="jumbotron text-light jumbotron-background">
         <h1>Let's Get to Work.</h1>
         <Row className="centerRow">
-        <Col xs={12} md={8}>
-        <SearchBar items={allCategories} placeholder = "Example: React"/>
-        </Col>
-        <Col xs={12} md={2}>
-          <Button type='submit' size='lg'>
+          <Col xs={12} md={8}>
+            <SearchBar items={allCategories} placeholder="Example: React" />
+          </Col>
+          <Col xs={12} md={2}>
+            <Button className="btn-margin" type="submit" size="lg">
               Search for Contracts
-          </Button>
-        </Col>
-        <Col xs={12} md={2}>
-            <Button size='lg' onClick={goToCreate}>Create a Contract</Button>
-        </Col>
+            </Button>
+            <Button className="btn-margin" size="lg" onClick={goToCreate}>
+              Create a Contract
+            </Button>
+          </Col>
         </Row>
       </Jumbotron>
       <Container>
@@ -69,11 +68,8 @@ export default function Homepage() {
           </p>
         </Row>
         <Row>
-            <Image className="image"
-              src="./img/woman-at-computer.jpg"
-              rounded
-            />
-            </Row>
+          <Image className="image" src="./img/woman-at-computer.jpg" rounded />
+        </Row>
 
         <Row className="useDevbids bg-light p-3">
           <Col>
@@ -104,16 +100,9 @@ export default function Homepage() {
                 </li>
               </ul>
             </Row>
-            
           </Col>
-          {/* <Col>
-            <Image className="image"
-              src="./img/woman-at-computer.jpg"
-              rounded
-            />
-          </Col> */}
         </Row>
       </Container>
     </>
-  );
+  )
 }
