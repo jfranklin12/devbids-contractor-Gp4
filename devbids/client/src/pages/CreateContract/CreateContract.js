@@ -8,6 +8,7 @@ import { ADD_CONTRACT } from "../../utils/mutations";
 import { QUERY_USER, QUERY_CONTRACTS } from "../../utils/queries";
 import './CreateContract.css'
 
+// Create contract page
 const CreateContract = () =>  {
   const [contractData, setContractData] = useState({
     username: Auth.getProfile().data.username,
@@ -17,6 +18,7 @@ const CreateContract = () =>  {
     description: "",
     contractDate: "",
   });
+
 
   const [newContract, { error }] = useMutation(ADD_CONTRACT);
 

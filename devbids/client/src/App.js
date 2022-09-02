@@ -23,6 +23,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <Navbar />
+        {/* Routes */}
         <Switch>
           <Route path="/profile">
             <Profile />
