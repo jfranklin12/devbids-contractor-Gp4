@@ -7,6 +7,7 @@ import "./ContractCard.css";
 
 import { QUERY_CONTRACTS } from "../../utils/queries";
 
+
 export default function ContractCard({
   title,
   price,
@@ -14,6 +15,7 @@ export default function ContractCard({
   description,
   username,
 }) {
+
   const [contractBid, setContractBid] = useState("inactive");
 
   const responseHandler = () => {
