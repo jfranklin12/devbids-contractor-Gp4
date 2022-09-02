@@ -9,6 +9,7 @@ export default function Contracts() {
   const { loading, data } = useQuery(QUERY_CONTRACTS)
 
   const contracts = data?.contracts || []
+  // 
 
   return (
     <div>
