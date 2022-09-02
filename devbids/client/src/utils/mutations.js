@@ -40,25 +40,20 @@ export const LOGIN = gql`
 
 // working
 export const ADD_CONTRACT = gql`
-  mutation AddContract(
-    $username: String!
-    $title: String!
-    $description: String!
-    $price: Int
-    $contractDate: String
-  ) {
-    addContract(
-      username: $username
-      title: $title
-      description: $description
-      price: $price
-      contractDate: $contractDate
-    ) {
+  mutation AddContract($title: String!, $description: String!, $category: String, $price: Int, $contractDate: String, $username: String!) {
+    addContract(title: $title, description: $description, category: $category, price: $price, contractDate: $contractDate, username: $username) {
       username
       title
       description
+      category
       price
       contractDate
+      responses {
+        responseAuthor
+        responseDescription
+        price
+        responseDate
+      }
     }
   }
 `;
@@ -79,6 +74,7 @@ export const ADD_RESPONSE = gql`
       username
       title
       description
+      category
       price
       contractDate
       responses {
