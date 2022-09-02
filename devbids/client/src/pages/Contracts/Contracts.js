@@ -42,6 +42,7 @@ export default function Contracts() {
         </button>
         {contracts.map((contract, index) => (
           // The contract details will each be mapped to its own contract card
+          <>
           <ContractCard
             title={contract.title}
             price={contract.price}
@@ -49,6 +50,10 @@ export default function Contracts() {
             description={contract.description}
             username={contract.username}
           />
+          <br></br>
+          </>
+
+          
         ))}
       </div>
     </div>

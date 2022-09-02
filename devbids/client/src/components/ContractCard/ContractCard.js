@@ -34,7 +34,7 @@ export default function ContractCard({
           Price Range: ${price}
         </Card.Subtitle>
         <Card.Subtitle className="mb-2 text-muted contract-subtitle" style={{ fontSize: "20px" }}>
-          Completion Date: {contractDate}
+          Date String: {contractDate}
         </Card.Subtitle>
         <Card.Text className="contract-description" style={{ color: "#5b57db", fontSize: "18px" }}>
           Job Description: {description}

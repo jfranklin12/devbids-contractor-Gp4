@@ -46,7 +46,8 @@ const contractSchema = new Schema(
     },
     contractDate: {
       type: Date,
-      default: Date.now
+      default: Date.now,
+      get: formatedDate,
     }
   },
   {
@@ -56,6 +57,11 @@ const contractSchema = new Schema(
     id: false
   }
 );
+// getter for date
+function formatedDate() {
+  const timestamp = Date.now();
+  return new Date(timestamp).toDateString();
+};
 
 const Contract = model('Contract', contractSchema);
 
