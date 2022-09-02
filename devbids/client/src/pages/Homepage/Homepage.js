@@ -8,13 +8,14 @@ import Auth from '../../utils/auth'
 import LoginSignupModal from '../../components/LoginSignUpModal/LoginSignUpModal'
 import './Homepage.css'
 
+// Homepage that users will see when first logging in
 export default function Homepage() {
   function goToCreate() {
     const token = Auth.loggedIn() ? Auth.getToken() : null
     if (!token) {
       return handleShow()
     }
-
+    // It redirects users to create contract when clicking on the button
     window.location.assign('/createContract')
   }
 
@@ -100,12 +101,6 @@ export default function Homepage() {
               </ul>
             </Row>
           </Col>
-          {/* <Col>
-            <Image className="image"
-              src="./img/woman-at-computer.jpg"
-              rounded
-            />
-          </Col> */}
         </Row>
       </Container>
     </>

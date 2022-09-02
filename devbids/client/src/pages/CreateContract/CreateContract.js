@@ -8,11 +8,13 @@ import { ADD_CONTRACT } from "../../utils/mutations";
 import { QUERY_USER, QUERY_CONTRACTS } from "../../utils/queries";
 import './CreateContract.css'
 
+// Create contract page
 const CreateContract = () =>  {
   const [contractData, setContractData] = useState('');
 
   const [searchContracts, setSearchContracts] = useState([]);
 
+  // Logic to post new contract to Database
   const [newContract, { error }] = useMutation(ADD_CONTRACT, {
     update(cache, {data: { newContract } }) {
       console.log(newContract);
@@ -27,11 +29,6 @@ const CreateContract = () =>  {
         console.error(err);
       }
 
-      // const { me } = cache.readQuery({ query: QUERY_USER });
-      // cache.writeQuery({
-      //   query: QUERY_USER,
-      //   data: { me: { ...me, contract: [...me.contract, newContract] } },
-      // });
     },
   });
 

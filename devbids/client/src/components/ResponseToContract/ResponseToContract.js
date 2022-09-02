@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './ResponseToContract.css'
 
 export default function ResponseToContract() {
+  // This state will change to remove the form and display new text once it is submitted.
   const [formSubmit, setFormSubmit] = useState('incomplete')
   return (
     <div>
@@ -44,6 +45,7 @@ export default function ResponseToContract() {
           </form>
         </div>
       )}
+      {/* This displays after form is submitted */}
       {formSubmit === 'complete' && (
         <div>
           <h3>

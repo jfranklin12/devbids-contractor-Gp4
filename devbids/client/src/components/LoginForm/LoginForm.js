@@ -1,61 +1,58 @@
-import React, { useState, useEffect } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
-import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../utils/mutations";
+import React, { useState, useEffect } from 'react'
+import { Form, Button, Alert } from 'react-bootstrap'
+import { useMutation } from '@apollo/client'
+import { LOGIN } from '../../utils/mutations'
 
-import Auth from "../../utils/auth";
+import Auth from '../../utils/auth'
 
 export function LoginForm() {
   // make state to remember what they type in forms
-  const [userFormData, setUserFormData] = useState({
-    email: "mary@gmail.com",
-    password: "12345678",
-  });
-  const [validated] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+  const [userFormData, setUserFormData] = useState({})
+  const [validated] = useState(false)
+  const [showAlert, setShowAlert] = useState(false)
 
   // write function that is called when you press login
-  const [login, { error }] = useMutation(LOGIN);
+  const [login, { error }] = useMutation(LOGIN)
 
   useEffect(() => {
     if (error) {
-      setShowAlert(true);
+      setShowAlert(true)
     } else {
-      setShowAlert(false);
+      setShowAlert(false)
     }
-  }, [error]);
+  }, [error])
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
-  };
+    const { name, value } = event.target
+    setUserFormData({ ...userFormData, [name]: value })
+  }
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     // check if form has everything (as per react-bootstrap docs)
-    const form = event.currentTarget;
+    const form = event.currentTarget
     if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+      event.preventDefault()
+      event.stopPropagation()
     }
 
     try {
-      console.log("here in frontend");
-      const res = await login({ variables: { ...userFormData } });
-      console.log(res);
+      console.log('here in frontend')
+      const res = await login({ variables: { ...userFormData } })
+      console.log(res)
 
-      Auth.login(res.data.login.token, res.data.login.user);
+      Auth.login(res.data.login.token, res.data.login.user)
     } catch (err) {
-      console.error(err);
-      setShowAlert(true);
+      console.error(err)
+      setShowAlert(true)
     }
 
     setUserFormData({
-      email: "",
-      password: "",
-    });
-  };
+      email: '',
+      password: '',
+    })
+  }
 
   return (
     <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -104,5 +101,5 @@ export function LoginForm() {
         Log In
       </Button>
     </Form>
-  );
+  )
 }
