@@ -15,6 +15,7 @@ const CreateContract = () =>  {
 
   const [newContract, { error }] = useMutation(ADD_CONTRACT, {
     update(cache, {data: { newContract } }) {
+      console.log(newContract);
       try { 
         const { contracts } = cache.readQuery({ query: QUERY_CONTRACTS });
         console.log(contracts);
@@ -26,18 +27,16 @@ const CreateContract = () =>  {
         console.error(err);
       }
 
-      const { me } = cache.readQuery({ query: QUERY_USER });
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: { me: { ...me, contract: [...me.contract, newContract] } },
-      });
+      // const { me } = cache.readQuery({ query: QUERY_USER });
+      // cache.writeQuery({
+      //   query: QUERY_USER,
+      //   data: { me: { ...me, contract: [...me.contract, newContract] } },
+      // });
     },
   });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-
-    // const contractSaved = ;
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -95,7 +94,7 @@ const CreateContract = () =>  {
               <textarea id="description" name="description" />
             </div>
           </div>
-          <button className="btn-submit" type="submit">
+          <button className="btn-submit" type="submit" onSubmit={handleFormSubmit}>
             Submit
           </button>
         </form>
