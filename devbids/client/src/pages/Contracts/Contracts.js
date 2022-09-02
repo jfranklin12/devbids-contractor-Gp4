@@ -14,9 +14,7 @@ export default function Contracts() {
     <div>
       <div className="contacts-banner"></div>
       <div className="form-container">
-        <div onClick={console.log(contracts)} className="contracts-title">
-          Contracts
-        </div>
+        <div className="contracts-title">Contracts</div>
         {contracts.map((contract, index) => (
           <ContractCard
             title={contract.title}

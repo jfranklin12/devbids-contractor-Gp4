@@ -6,8 +6,13 @@
     center/cover;
   height: 50vh;
   width: 100vw;
+  
 }
 
 #description {
   height: 100%;
+}
+
+.form-container {
+  padding: 30px;
 }
