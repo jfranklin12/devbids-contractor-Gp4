@@ -14,6 +14,7 @@
 /* Container for forms */
 .form-container {
   margin: 1.5rem;
+  padding-bottom: 1rem;
   border: 1px solid #000;
   border-radius: 1rem;
   display: flex;
