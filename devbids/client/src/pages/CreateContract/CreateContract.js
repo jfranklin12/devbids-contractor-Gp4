@@ -76,7 +76,6 @@ const CreateContract = () =>  {
                 type="tel"
                 id="phone"
                 name="phone"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
               />
               <label for="email">Email:</label>
               <input type="email" id="email" name="email" />
@@ -90,7 +89,7 @@ const CreateContract = () =>  {
               <label for="price">Price:</label>
               <input className="priceInput" type="number" id="price" name="price" />
               <label for="completion-date">Date to be completed by:</label>
-              <input type="text" id="completion-date" name="completion-date" />
+              <input type="date" id="completion-date" name="completion-date" />
             </div>
             <div className="form-section">
               <h2>Job Description</h2>
