@@ -87,8 +87,7 @@ const resolvers = {
           description,
           category,
           price,
-          contractDate,
-          username: context.user.username,
+          contractDate
         });
 
         await User.findOneAndUpdate(

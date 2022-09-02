@@ -48,7 +48,7 @@ const CreateContract = () =>  {
     if (!token){
       return false;
     } 
-    
+
     console.log(contractData);
     try {
       const { data } = await newContract({
