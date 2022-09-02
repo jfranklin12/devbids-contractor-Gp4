@@ -52,7 +52,8 @@ const CreateContract = () =>  {
           username: Auth.getProfile().data.username,
         },
       });
-
+      console.log(data);
+      console.log(`^ is data`);
       setContractData('');
     } catch (err) {
       console.error(err);
