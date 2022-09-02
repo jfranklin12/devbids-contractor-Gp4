@@ -12,7 +12,7 @@ query User {
 `
 // query for contracts working
 export const QUERY_CONTRACTS = gql`
-  query Query {
+  query Contracts {
     contracts {
       username
       title
