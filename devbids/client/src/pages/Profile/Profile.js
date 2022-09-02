@@ -18,18 +18,19 @@ export default function Profile() {
         <div>
           <ProfileCard />
         </div>
-        {contracts.map((contract, index) => (
-          <ContractCard
-            title={contract.title}
-            price={contract.price}
-            contractDate={contract.contractDate}
-            description={contract.description}
-            username={contract.username}
-          />
-        ))}
         <div className="contracts-container">
           <div className="my-contracts">My Contracts</div>
-          <div></div>
+          <div>
+            {contracts.map((contract, index) => (
+              <ContractCard
+                title={contract.title}
+                price={contract.price}
+                contractDate={contract.contractDate}
+                description={contract.description}
+                username={contract.username}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

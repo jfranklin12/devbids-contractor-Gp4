@@ -1,38 +1,56 @@
 [
-    {
-        "id": 1,
-        "username": "vyang",
-        "user_id": 1,
-        "title": "Java Function Build",
-        "description": "This project will require the contractor to build a Java function.",
-        "category": "Java",
-        "price": 400.00
-    },
-    {
-        "id": 2,
-        "username": "mmtaylor",
-        "user_id": 2,
-        "title": "Python Function Build",
-        "description": "This project will require the contractor to build a Python function.",
-        "category": "Python",
-        "price": 500.00
-    },
-    {
-        "id": 3,
-        "user_id": 1,
-        "username": "hsteffner",
-        "title": "Ruby Function Build",
-        "description": "This project will require the contractor to build a Ruby function.",
-        "category": "Ruby",
-        "price": 450.00
-    },
-    {
-        "id": 4,
-        "user_id": 2,
-        "username": "jfranklin",
-        "title": "C++ Function Build",
-        "description": "This project will require the contractor to build a C++ function.",
-        "category": "C++",
-        "price": 550.00
-    }
+  {
+    "id": 1,
+    "username": "vyang",
+    "user_id": 1,
+    "title": "Java Function Build",
+    "description": "This project will require the contractor to build a Java function.",
+    "category": "Java",
+    "price": 400.0
+  },
+  {
+    "id": 2,
+    "username": "mmtaylor",
+    "user_id": 2,
+    "title": "Python Function Build",
+    "description": "This project will require the contractor to build a Python function.",
+    "category": "Python",
+    "price": 500.0
+  },
+  {
+    "id": 3,
+    "user_id": 1,
+    "username": "hsteffner",
+    "title": "Ruby Function Build",
+    "description": "This project will require the contractor to build a Ruby function.",
+    "category": "Ruby",
+    "price": 450.0
+  },
+  {
+    "id": 4,
+    "user_id": 2,
+    "username": "jfranklin",
+    "title": "C++ Function Build",
+    "description": "This project will require the contractor to build a C++ function.",
+    "category": "C++",
+    "price": 550.0
+  },
+  {
+    "id": 5,
+    "user_id": 2,
+    "username": "jfranklin",
+    "title": "C++ Function Build",
+    "description": "This project will require the contractor to build a C++ function.",
+    "category": "C++",
+    "price": 550.0
+  },
+  {
+    "id": 6,
+    "user_id": 6,
+    "username": "jack123",
+    "title": "cooking eggs",
+    "description": "Need help cooking eggs",
+    "category": "C++",
+    "price": 30.0
+  }
 ]
