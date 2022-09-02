@@ -13,7 +13,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     category: String
-    price: Int
+    price: String
     contractDate: String
     responses: [Response]
   }
@@ -22,7 +22,7 @@ const typeDefs = gql`
     _id: ID
     responseAuthor: String!
     responseDescription: String!
-    price: Int
+    price: String
     responseDate: String
   }
 
@@ -41,7 +41,7 @@ const typeDefs = gql`
     responseUser: Response!
     contractId: Contract!
     category: [Category]!
-    price: Int
+    price: String
     transactionDate: String
   }
   
@@ -68,8 +68,8 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String! password: String!, firstName: String!, lastName: String!): Auth
-    addContract(username: String!, title: String!, description: String!, category: String, price: Int, contractDate: String): Contract
-    addResponse(contractId: ID!, responseDescription: String!, price: Int, responseDate: String): Contract
+    addContract(username: String! , title: String!, description: String!, category: String, price: String, contractDate: String): Contract
+    addResponse(contractId: ID!, responseDescription: String!, price: String, responseDate: String): Contract
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     deleteContract(contractId: ID!): Contract
     deleteResponse(contractId: ID!, responseId: ID!): Contract

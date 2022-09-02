@@ -10,64 +10,62 @@ import './CreateContract.css'
 
 const CreateContract = () =>  {
   const [contractData, setContractData] = useState({
+    username: Auth.getProfile().data.username,
     title: "",
     category: "",
-    price:  "",
+    price:  0,
     description: "",
     contractDate: "",
   });
 
-  const [newContract, { error }] = useMutation(ADD_CONTRACT, {
-    update(cache, {data: { newContract } }) {
-      console.log(newContract);
-      try { 
-        const { contracts } = cache.readQuery({ query: QUERY_CONTRACTS });
-        console.log(contracts);
-        cache.writeQuery({
-          query: QUERY_CONTRACTS,
-          data: { contracts: [newContract, ...contracts] },
-        });
-        
-      } catch(err) {
-        console.error(err);
-      }
+  const [newContract, { error }] = useMutation(ADD_CONTRACT);
 
-      const { user } = cache.readQuery({ query: QUERY_USER });
-      console.log(user);
-      cache.writeQuery({
-        query: QUERY_USER,
-        data: { user: { ...user, contracts: [...user.contracts, newContract] } },
-      });
-    },
-  });
+      // const { user } = cache.readQuery({ query: QUERY_USER });
+      // console.log(user);
+      // cache.writeQuery({
+      //   query: QUERY_USER,
+      //   data: { user: { ...user, contracts: [...user.contracts, newContract] } },
+      // });
+  
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setContractData({...contractData, [name]: value });
+    console.log(contractData);
+  }
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token){
       return false;
-    }
-
+    } 
+    
+    console.log(contractData);
     try {
-      const { data } = await newContract({ variables: {
-          contractData,
-          username: Auth.getProfile().data.username,
-        },
+      const { data } = await newContract({
+        variables: { ...form },
       });
-      console.log(data);
-      console.log(`^ is data`);
-      setContractData({
-        title: "",
-        category: "",
-        price:  "",
-        description: "",
-        contractDate: "",
-      });
+      
     } catch (err) {
       console.error(err);
     }
+
+    // setContractData({
+    //   title: "",
+    //   category: "",
+    //   price: 0,
+    //   description: "",
+    //   contractDate: "",
+    // });
   };
   
   return (
@@ -80,19 +78,19 @@ const CreateContract = () =>  {
             <div className="form-section">
               <h2>Job Information</h2>
               <label for="title">Username:</label>
-              <input type="text" id="username" name="username" value={Auth.getProfile().data.username} disabled={true}/>
+              <input type="text" id="username" name="username" onChange={handleChange} value={Auth.getProfile().data.username} disabled={true}/>
               <label for="title">Job Title:</label>
-              <input type="text" id="title" name="title" value="do the thing"/>
+              <input type="text" id="title" name="title" onChange={handleChange}/>
               <label for="category">Skill Required:</label>
-              <SearchBar items = {allCategories} id = "category" name="category" value="React"/>
+              <input type="text" id="category" name="category" onChange={handleChange}/>
               <label for="price" >Price:</label>
-              <input className="priceInput" type="number" id="price" name="price" value="500"/>
+              <input className="priceInput" type="number" id="price" name="price" onChange={handleChange}/>
               <label for="completion-date">Date to be completed by:</label>
-              <input type="date" id="completion-date" name="contractDate" />
+              <input type="date" id="completion-date" name="contractDate" onChange={handleChange}/>
             </div>
             <div className="form-section">
               <h2>Job Description</h2>
-              <textarea id="description" name="description" value="really, do the thing"/>
+              <textarea id="description" name="description" onChange={handleChange}/>
             </div>
           </div>
           <button className="btn-submit" type="submit" onSubmit={handleFormSubmit}>
